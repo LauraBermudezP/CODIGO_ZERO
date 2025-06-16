@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="DEV DEVEL" />
+    <meta name="description"
+        content="{ El blog de programación para aprendices. Encuentra, comparte, aprende y participa. }" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="/assets/CZERO.png" type="image/x-icon" />
+    <title>Gestión de Eventos | Código Zero</title>
+    <link rel="stylesheet" href="/html_css/stylesheet.css" />
+    <link rel="stylesheet" href="/html_css/styleAdmin.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="/html_css/indexA.html">
+                    <img src="/assets/CZERO.png" alt="Logo DEV DEVEL" title="Volver a la página principal">
+                </a>
+            </div>
+            <div class="search-container">
+                <div class="search-bar">
+                    <button type="submit" aria-label="Buscar" title="Buscar">
+                        <svg width="25" height="25" viewBox="0 4 24 16" fill="#3b3b3b"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="10" cy="10" r="7" stroke="#3b3b3b" stroke-width="2" fill="none" />
+                            <line x1="15" y1="15" x2="22" y2="22" stroke="#3b3b3b" stroke-width="2" />
+                        </svg>
+                    </button>
+                    <input type="text" id="searchInput" placeholder="Buscar..." />
+                </div>
+            </div>
+            <button id="create-event-btn" title="Crear evento">Crear evento</button>
+            <div class="user-icon">
+                <button type="button" id="abrir-login">
+                    <i class="fas fa-user"></i>
+                </button>
+            </div>
+            <aside id="menu-user" class="menu-user">
+                <a href="/html_css/perfil.html">Perfil</a>
+                <a href="/html_css/index.html">Cerrar sesión</a>
+            </aside>
+        </nav>
+    </header>
+
+    <main class="main-container">
+        <aside class="sidebar">
+            <h3>Categorías</h3>
+            <ul>
+                <li><a href="#" data-category="all" class="active">TODAS</a></li>
+                <li><a href="#" data-category="frontend">Frontend</a></li>
+                <li><a href="#" data-category="backend">Backend</a></li>
+                <li><a href="#" data-category="bases_de_datos">Bases de Datos</a></li>
+                <li><a href="#" data-category="algoritmos">Algoritmos</a></li>
+                <li><a href="#" data-category="logica">Lógica</a></li>
+                <li><a href="#" data-category="control_de_versiones">Control de Versiones</a></li>
+                <li><a href="#" data-category="estructuras">Estructuras, Ciclos, Bucles</a></li>
+                <li><a href="#" data-category="desarrollo_web">Desarrollo Web</a></li>
+                <li><a href="#" data-category="lenguajes">Lenguajes de Programación</a></li>
+                <li><a href="#" data-category="matematicas">Matemáticas</a></li>
+                <li><a href="#" data-category="ingles">Inglés</a></li>
+            </ul>
+        </aside>
+
+        <button id="back-to-top" aria-label="Volver arriba">
+            <svg width="29" height="29" viewBox="0 0 24 24" fill="black" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 4L4 12H9V20H15V12H20L12 4Z" />
+            </svg>
+        </button>
+
+        <section class="main-events">
+            <h2 style="margin: 10px 0 20px 0;">Gestión de Eventos y Actividades de la Comunidad (Admin Panel)</h2>
+            <div class="event-grid" id="admin-event-grid">
+            </div>
+            <p id="admin-empty-events-message"
+                style="display: none; text-align: center; margin-top: 30px; color: #777; font-style: italic; font-size: 1.1rem; padding: 15px; background-color: #f0f0f0; border-radius: 8px;">
+                No hay eventos creados todavía. ¡Crea uno nuevo!
+            </p>
+        </section>
+
+        <section class="main-events">
+            <h2 style="margin: 10px 0 20px 0;">Próximos eventos y Actividades de la comunidad</h2>
+            <div class="event-grid">
+                <article class="event-card" data-category="backend" data-id="foro-backend">
+                    <h3>Foro en vivo: ¿Qué tan difícil es aprender backend?</h3>
+                    <p class="event-date">📅 15/07/2025 - 🕓 5:30 PM</p>
+                    <div class="event-details">
+                        <span class="category">Backend</span>
+                        <div class="tags">comunidad, preguntas, estudiantes</div>
+                    </div>
+                    <p class="description">Espacio abierto para que estudiantes compartan sus dudas, miedos y avances en
+                        el camino backend. Hablaremos con mentores invitados y otros devs junior.</p>
+                    <div class="event-actions">
+                        <button class="btn-attend">Asistiré <span class="attend-count">42</span></button>
+                        <button class="btn-vermas">Ver más</button>
+                        <div class="evento-detalles" style="display: none;">
+                            <p><strong>Lugar:</strong> Salón colaborativo ITM Fraternidad</p>
+                            <p><strong>Incluye:</strong> Refrigerio, charla tipo conversatorio y espacio de conexión
+                                entre estudiantes de distintas carreras tecnológicas.</p>
+                            <p><strong>Recomendaciones:</strong> Ir con mente abierta, sin miedo a preguntar y ganas de
+                                compartir.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="event-card" data-category="backend" data-id="taller-api">
+                    <h3>Taller práctico: Conecta tu formulario HTML a una API en Java</h3>
+                    <p class="event-date">📅 20/07/2025 - 🕓 10:00 AM</p>
+                    <div class="event-details">
+                        <span class="category">Backend</span>
+                        <div class="tags">formulario, java, api, práctica</div>
+                    </div>
+                    <p class="description">Taller donde paso a paso aprenderás a tomar los datos de un formulario y
+                        enviarlos a una API construida en Java. ¡Ideal si ya sabes un poco de HTML!</p>
+                    <div class="event-actions">
+                        <button class="btn-attend">Asistiré <span class="attend-count">25</span></button>
+                        <button class="btn-vermas">Ver más</button>
+                        <div class="evento-detalles" style="display: none;">
+                            <p><strong>Lugar:</strong> Biblioteca Pública Piloto - Sala Makers</p>
+                            <p><strong>Incluye:</strong> Acceso a repositorio del proyecto, asesoría en vivo y
+                                ejercicios prácticos.</p>
+                            <p><strong>Recomendaciones:</strong> Llevar portátil con Java y algún IDE instalado
+                                (NetBeans, IntelliJ o VSCode con extensiones).</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <div id="popup-editor" class="popup hidden" role="dialog" aria-modal="true" aria-labelledby="popup-title">
+        <div class="popup-content">
+            <h3 id="popup-title">Programar nuevo evento</h3>
+            <span class="close-popup" role="button" aria-label="Cerrar">&times;</span>
+            <form id="event-form"> <label for="event-title">Título</label>
+                <input id="event-title" type="text" placeholder="Escribe un título..." required />
+
+                <label for="event-category">Tema del Evento</label>
+                <select id="event-category" required>
+                    <option value="" disabled selected>Selecciona una categoría</option>
+                    <option value="frontend">Frontend</option>
+                    <option value="backend">Backend</option>
+                    <option value="bases_de_datos">Bases de Datos</option>
+                    <option value="algoritmos">Algoritmos</option>
+                    <option value="control_de_versiones">Control de Versiones</option>
+                    <option value="logica">Lógica</option>
+                    <option value="estructuras_de_datos">Estructuras, Ciclos, Bucles</option>
+                    <option value="desarrollo_web">Desarrollo Web</option>
+                    <option value="lenguajes">Lenguajes</option>
+                    <option value="matematicas">Matemáticas</option>
+                    <option value="ingles">Inglés</option>
+                </select>
+
+                <label for="event-tags">Etiquetas</label>
+                <input id="event-tags" type="text" placeholder="ej: charla, bootcamp, conferencia" required />
+
+                <label for="event-datetime">Fecha y Hora</label>
+                <input id="event-datetime" type="datetime-local" required />
+
+                <label for="event-editor">Detalles evento</label>
+                <div id="event-editor" class="quill-editor"></div> <button type="submit">Publicar Evento</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p class="cp">&copy; 2025 CÓDIGO CERO | Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="/script_js/barrabusqueda.js"></script>
+    <script src="/script_js/sidebar.js"></script>
+    <script src="/script_js/header.js"></script>
+    <script src="/script_js/acceso.js"></script>
+    <script src="/script_js/perfil.js"></script>
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script src="/script_js/adminEvents.js"></script>
+    <script>
+        let quill; 
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const createEventBtn = document.getElementById('create-event-btn');
+            const popupEditor = document.getElementById('popup-editor');
+            const eventForm = document.getElementById('event-form');
+            const closePopupBtn = document.querySelector('.close-popup');
+            const adminEventGrid = document.getElementById('admin-event-grid');
+            const adminEmptyMessage = document.getElementById('admin-empty-events-message');
+
+            function initializeQuill() {
+                if (!quill) { // Only initialize if it hasn't been initialized yet
+                    quill = new Quill('#event-editor', {
+                        theme: 'snow',
+                        modules: {
+                            toolbar: [
+                                ['bold', 'italic', 'underline', 'strike'], // toggled buttons
+                                ['blockquote', 'code-block'],
+
+                                [{ 'header': 1 }, { 'header': 2 }], // custom button values
+                                [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+                                [{ 'script': 'sub' }, { 'script': 'super' }], // superscript/subscript
+                                [{ 'indent': '-1' }, { 'indent': '+1' }], // outdent/indent
+                                [{ 'direction': 'rtl' }], // text direction
+
+                                [{ 'size': ['small', false, 'large', 'huge'] }], // custom dropdown
+                                [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+
+                                [{ 'color': [] }, { 'background': [] }], // dropdown with defaults from theme
+                                [{ 'font': [] }],
+                                [{ 'align': [] }],
+
+                                ['link', 'image', 'video'],
+
+                                ['clean'] // remove formatting button
+                            ]
+                        }
+                    });
+                }
+            }
+
+            if (createEventBtn) {
+                createEventBtn.addEventListener('click', () => {
+                    popupEditor.classList.remove('hidden');
+                    initializeQuill(); 
+                    resetEventForm(); 
+                });
+            }
+
+            if (closePopupBtn) {
+                closePopupBtn.addEventListener('click', () => {
+                    popupEditor.classList.add('hidden');
+                    resetEventForm(); // Clear form on close
+                });
+            }
+
+            if (popupEditor) {
+                popupEditor.addEventListener('click', (e) => {
+                    if (e.target === popupEditor) {
+                        popupEditor.classList.add('hidden');
+                        resetEventForm(); // Clear form on close
+                    }
+                });
+            }
+
+            if (eventForm) {
+                eventForm.addEventListener('submit', (e) => {
+                    e.preventDefault(); // Prevent default form submission
+
+                    const title = document.getElementById('event-title').value;
+                    const category = document.getElementById('event-category').value;
+                    const tagsInput = document.getElementById('event-tags').value;
+                    const dateTime = document.getElementById('event-datetime').value; // YYYY-MM-DDTHH:MM
+                    const description = quill.root.innerHTML; // Get Quill content as HTML
+
+                    if (!title || !category || !tagsInput || !dateTime || quill.root.textContent.trim() === '') {
+                        alert('Por favor, completa todos los campos.');
+                        return;
+                    }
+
+                    const tags = tagsInput.split(',').map(tag => tag.trim()).filter(tag => tag !== '');
+
+                    const eventDate = new Date(dateTime);
+                    const formattedDate = eventDate.toLocaleDateString('es-ES', {
+                        year: 'numeric',
+                        month: '2-digit',
+                        day: '2-digit'
+                    });
+                    const formattedTime = eventDate.toLocaleTimeString('es-ES', {
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        hour12: false 
+                    });
+
+                    const newEvent = {
+                        id: Date.now(), 
+                        title,
+                        category,
+                        tags,
+                        date: formattedDate,
+                        time: formattedTime,
+                        description, 
+                        attendCount: 0 
+                    };
+
+                    saveEvent(newEvent); 
+                    renderAdminEvents(); 
+                    popupEditor.classList.add('hidden'); 
+                    resetEventForm(); 
+                });
+            }
+
+            function saveEvent(event) {
+                let events = JSON.parse(localStorage.getItem('adminEvents')) || [];
+                events.push(event);
+                localStorage.setItem('adminEvents', JSON.stringify(events));
+                alert('🗓️ ¡Evento creado exitosamente!');
+            }
+
+            function renderAdminEvents() {
+                const events = JSON.parse(localStorage.getItem('adminEvents')) || [];
+                adminEventGrid.innerHTML = ''; // Clear current content
+
+                if (events.length === 0) {
+                    adminEmptyMessage.style.display = 'block';
+                    return;
+                } else {
+                    adminEmptyMessage.style.display = 'none';
+                }
+
+                events.forEach(event => {
+                    const eventCard = document.createElement('article');
+                    eventCard.classList.add('event-card'); // Use the same card styling
+                    eventCard.setAttribute('data-category', event.category);
+                    eventCard.setAttribute('data-id', event.id);
+
+                    // Display a summary description for the admin card, not the full Quill HTML
+                    const displayDescription = event.description.replace(/<[^>]*>?/gm, '').substring(0, 150) + '...';
+
+                    eventCard.innerHTML = `
+                <h3>${event.title}</h3>
+                <p class="event-date">📅 ${event.date} - 🕓 ${event.time}</p>
+                <div class="event-details">
+                    <span class="category">${event.category}</span>
+                    <div class="tags">${event.tags.join(', ')}</div>
+                </div>
+                <p class="description">${displayDescription}</p>
+                <div class="event-actions">
+                    <button class="btn-edit" data-id="${event.id}">Editar</button>
+                    <button class="btn-delete" data-id="${event.id}">Eliminar</button>
+                </div>
+            `;
+                    adminEventGrid.appendChild(eventCard);
+                });
+
+                // Add event listeners for edit and delete buttons after rendering
+                attachAdminEventListeners();
+            }
+
+            function attachAdminEventListeners() {
+                document.querySelectorAll('.btn-edit').forEach(button => {
+                    button.addEventListener('click', (e) => editEvent(e.target.dataset.id));
+                });
+
+                document.querySelectorAll('.btn-delete').forEach(button => {
+                    button.addEventListener('click', (e) => deleteEvent(e.target.dataset.id));
+                });
+            }
+
+            function editEvent(id) {
+                const events = JSON.parse(localStorage.getItem('adminEvents')) || [];
+                const eventToEdit = events.find(event => event.id == id);
+
+                if (eventToEdit) {
+                    document.getElementById('popup-title').textContent = 'Editar evento';
+                    document.getElementById('event-title').value = eventToEdit.title;
+                    document.getElementById('event-category').value = eventToEdit.category;
+                    document.getElementById('event-tags').value = eventToEdit.tags.join(', ');
+
+                    const [day, month, year] = eventToEdit.date.split('/');
+                    const isoDateTime = `${year}-${month}-${day}T${eventToEdit.time}`;
+                    document.getElementById('event-datetime').value = isoDateTime;
+
+                    initializeQuill(); 
+                    quill.root.innerHTML = eventToEdit.description;
+
+                    eventForm.setAttribute('data-editing-id', eventToEdit.id);
+                    popupEditor.classList.remove('hidden');
+
+                    eventForm.querySelector('button[type="submit"]').textContent = 'Actualizar Evento';
+                }
+            }
+
+            if (eventForm) {
+                eventForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const editingId = eventForm.getAttribute('data-editing-id');
+
+                    if (editingId) { 
+                        let events = JSON.parse(localStorage.getItem('adminEvents')) || [];
+                        const index = events.findIndex(event => event.id == editingId);
+
+                        if (index !== -1) {
+                            const title = document.getElementById('event-title').value;
+                            const category = document.getElementById('event-category').value;
+                            const tagsInput = document.getElementById('event-tags').value;
+                            const dateTime = document.getElementById('event-datetime').value;
+                            const description = quill.root.innerHTML;
+
+                            if (!title || !category || !tagsInput || !dateTime || quill.root.textContent.trim() === '') {
+                                alert('Por favor, completa todos los campos.');
+                                return;
+                            }
+
+                            const tags = tagsInput.split(',').map(tag => tag.trim()).filter(tag => tag !== '');
+
+                            const eventDate = new Date(dateTime);
+                            const formattedDate = eventDate.toLocaleDateString('es-ES', {
+                                year: 'numeric',
+                                month: '2-digit',
+                                day: '2-digit'
+                            });
+                            const formattedTime = eventDate.toLocaleTimeString('es-ES', {
+                                hour: '2-digit',
+                                minute: '2-digit',
+                                hour12: false
+                            });
+
+                            events[index] = {
+                                ...events[index], 
+                                title,
+                                category,
+                                tags,
+                                date: formattedDate,
+                                time: formattedTime,
+                                description
+                            };
+                            localStorage.setItem('adminEvents', JSON.stringify(events));
+                            alert('¡Evento actualizado exitosamente!');
+                            renderAdminEvents();
+                            popupEditor.classList.add('hidden');
+                            resetEventForm(); 
+                        }
+                    }
+                });
+            }
+
+            function deleteEvent(id) {
+                if (confirm('🔴 ¿Estás seguro de que quieres eliminar este evento?')) {
+                    let events = JSON.parse(localStorage.getItem('adminEvents')) || [];
+                    events = events.filter(event => event.id != id);
+                    localStorage.setItem('adminEvents', JSON.stringify(events));
+                    alert('¡Evento eliminado!');
+                    renderAdminEvents(); 
+                }
+            }
+
+            function resetEventForm() {
+                document.getElementById('event-title').value = '';
+                document.getElementById('event-category').value = '';
+                document.getElementById('event-tags').value = '';
+                document.getElementById('event-datetime').value = '';
+                if (quill) {
+                    quill.setContents([]); // Clear Quill editor content
+                }
+                document.getElementById('popup-title').textContent = 'Programar nuevo evento'; // Reset popup title
+                eventForm.removeAttribute('data-editing-id'); // Remove editing ID
+                eventForm.querySelector('button[type="submit"]').textContent = 'Publicar Evento'; // Reset button text
+            }
+
+            renderAdminEvents();
+
+            document.querySelectorAll('.sidebar ul li a').forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const category = this.dataset.category;
+                    const eventCards = document.querySelectorAll('#admin-event-grid .event-card');
+                    const currentActive = document.querySelector('.sidebar ul li a.active');
+                    if (currentActive) {
+                        currentActive.classList.remove('active');
+                    }
+                    this.classList.add('active');
+
+                    let visibleCount = 0;
+                    eventCards.forEach(card => {
+                        if (category === 'all' || card.dataset.category === category) {
+                            card.style.display = 'flex'; 
+                            visibleCount++;
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+
+                    if (visibleCount === 0) {
+                        adminEmptyMessage.style.display = 'block';
+                    } else {
+                        adminEmptyMessage.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+
+</html>

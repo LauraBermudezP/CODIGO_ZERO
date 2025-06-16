@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="DEV DEVEL" />
+    <meta name="description"
+        content="{ El blog de programación para aprendices. Encuentra, comparte, aprende y participa. }" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="/assets/CZERO.png" type="image/x-icon" />
+    <title>Recursos Académicos | Código Zero</title>
+    <link rel="stylesheet" href="/html_css/stylesheet.css" />
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="/html_css/index.html">
+                    <img src="/assets/CZERO.png" alt="Logo DEV DEVEL" title="Volver a la página principal">
+                </a>
+            </div>
+            <div class="search-container">
+                <div class="search-bar">
+                    <button type="submit" aria-label="Buscar" title="Buscar">
+                        <svg width="25" height="25" viewBox="0 4 24 16" fill="#3b3b3b"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="10" cy="10" r="7" stroke="#3b3b3b" stroke-width="2" fill="none" />
+                            <line x1="15" y1="15" x2="22" y2="22" stroke="#3b3b3b" stroke-width="2" />
+                        </svg>
+                    </button>
+                    <input type="text" id="searchInput" placeholder="Buscar..." />
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/html_css/terminologia.html">Terminología</a></li>
+                <li><a href="/html_css/recursosAcademicos.html">Recursos</a></li>
+                <li><a href="/html_css/eventos.html">Eventos</a></li>
+                <li><a href="/html_css/acercaDe.html">Acerca de</a></li>
+            </ul>
+            <div class="user-icon">
+                <button type="button" class="abrir-login-btn" title="Subir recurso">Crear</button>
+                <button type="button" class="abrir-login-btn">Ingresar</button>
+            </div>
+            <div id="popup-form" class="popup hidden">
+                <div class="popup-content">
+                    <span class="close-btn">&times;</span>
+                    <div class="contenedor">
+                        <div class="contenedor-form sign-in">
+                            <form>
+                                <h2>Iniciar sesión</h2>
+                                <div class="contenedor-input">
+                                    <ion-icon name="mail-outline"></ion-icon>
+                                    <input type="email" placeholder="Correo electrónico" required>
+                                </div>
+                                <div class="contenedor-input">
+                                    <ion-icon name="lock-closed-outline"></ion-icon>
+                                    <input type="password" placeholder="Contraseña" required>
+                                </div>
+                                <a href="#">¿Olvidaste tu contraseña?</a>
+                                <button type="submit" class="btn-iniciarsesion">INICIAR SESIÓN</button>
+                            </form>
+                        </div>
+                        <div class="contenedor-form sign-up">
+                            <form>
+                                <h2>Crear una cuenta</h2>
+                                <div class="contenedor-input">
+                                    <ion-icon name="person-outline"></ion-icon>
+                                    <input type="text" placeholder="Nombre completo" required>
+                                </div>
+                                <div class="contenedor-input">
+                                    <ion-icon name="mail-outline"></ion-icon>
+                                    <input type="email" placeholder="Correo electrónico" required>
+                                </div>
+                                <div class="contenedor-input">
+                                    <ion-icon name="lock-closed-outline"></ion-icon>
+                                    <input type="password" placeholder="Contraseña" required>
+                                </div>
+                                <span>Al hacer click en "Registrarse", estarás aceptando nuestros <a
+                                        href="/html/sobreNosotros.html">términos, condiciones y políticas de
+                                        privacidad</a>.</span>
+                                <button type="submit" class="btn-registrarse">REGISTRARSE</button>
+                            </form>
+                        </div>
+                        <div class="contenedor-welcome">
+                            <div class="welcome-sign-up welcome">
+                                <h3>Bienvenido a DEV DEVEL</h3>
+                                <p>¿Aún no tienes una cuenta? <br>Regístrate ahora y únete a la comunidad de desarrollo
+                                    CESDE</p>
+                                <button class="button" id="btn-sign-up">Regístrate aquí</button>
+                            </div>
+                            <div class="welcome-sign-in welcome">
+                                <h3>Bienvenido a DEV DEVEL</h3>
+                                <p>¿Ya tienes una cuenta? <br>Ingresa ahora a la comunidad y comienza a participar</p>
+                                <button class="button" id="btn-sign-in">Iniciar sesión</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-container">
+        <aside class="sidebar">
+            <h3>Categorías</h3>
+            <ul>
+                <li><a href="#" data-category="all" class="active">TODAS</a></li>
+                <li><a href="#" data-category="frontend">Frontend</a></li>
+                <li><a href="#" data-category="backend">Backend</a></li>
+                <li><a href="#" data-category="bases_de_datos">Bases de Datos</a></li>
+                <li><a href="#" data-category="algoritmos">Algoritmos</a></li>
+                <li><a href="#" data-category="logica">Lógica</a></li>
+                <li><a href="#" data-category="control_de_versiones">Control de Versiones</a></li>
+                <li><a href="#" data-category="estructuras">Estructuras, Ciclos, Bucles</a></li>
+                <li><a href="#" data-category="desarrollo_web">Desarrollo Web</a></li>
+                <li><a href="#" data-category="lenguajes">Lenguajes de Programación</a></li>
+                <li><a href="#" data-category="matematicas">Matemáticas</a></li>
+                <li><a href="#" data-category="ingles">Inglés</a></li>
+            </ul>
+        </aside>
+
+        <button id="back-to-top" aria-label="Volver arriba">
+            <svg width="29" height="29" viewBox="0 0 24 24" fill="black" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 4L4 12H9V20H15V12H20L12 4Z" />
+            </svg>
+        </button>
+
+        <section class="main-academic-resources">
+            <h2 style="margin: 15px;">Recursos académicos y material de estudio</h2>
+            <div class="resource-grid">
+                <div class="resource-card" data-category="control_de_versiones">
+                    <h3>Curso Básico y Gratis de Git & GitHub en Youtube</h3>
+                    <p class="author">por: @versionador123</p>
+                    <span class="category">Control de versiones</span>
+                    <div class="tags">git, gitHub, CLI</div>
+                    <p class="description">Aprende Git desde cero con ejemplos reales y buenas prácticas.</p>
+                    <div class="resource-actions">
+                        <a href="https://www.google.com/search?q=curso+git+youtube&rlz=1C1GCEU_es&oq=curso+git+you&gs_lcrp=EgZjaHJvbWUqBwgBEAAYgAQyBggAEEUYOTIHCAEQABiABDIHCAIQABjvBTIHCAMQABjvBTIKCAQQABiABBiiBDIKCAUQABiABBiiBDIKCAYQABiABBiiBNIBCDI0ODNqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8#fpstate=ive&vld=cid:be5d6348,vid:9ZJ-K-zk_Go,st:0"
+                            target="_blank" class="btn-vermas">Explorar</a>
+                    </div>
+                </div>
+
+                <div class="resource-card" data-category="algoritmos">
+                    <h3>Guía visual de algoritmos para principiantes</h3>
+                    <p class="author">por: @algowizard</p>
+                    <span class="category">Algoritmos</span>
+                    <div class="tags">algoritmos, logica, pdf</div>
+                    <p class="description">Resumen visual con diagramas y problemas resueltos.</p>
+                    <div class="resource-actions">
+                        <a href="https://www.datacamp.com/es/blog/what-is-an-algorithm" target="_blank"
+                            class="btn-vermas">Explorar</a>
+                    </div>
+                </div>
+
+                <div class="resource-card" data-category="logica">
+                    <h3>Manual Práctico de Lógica Computacional</h3>
+                    <p class="author">por: @logicodev</p>
+                    <span class="category">Lógica de Programación</span>
+                    <div class="tags">condicionales, ciclos, pseudocódigo</div>
+                    <p class="description">Explicaciones simples, ejercicios tipo test y mini proyectos para practicar
+                        paso a paso.</p>
+                    <div class="resource-actions">
+                        <a href="https://talently.tech/blog/ejercicios-de-logica-de-programacion/" target="_blank"
+                            class="btn-vermas">Explorar</a>
+                    </div>
+                </div>
+
+                <div class="resource-card" data-category="lenguajes">
+                    <h3>Mini retos de JavaScript para entrenar tu mente</h3>
+                    <p class="author">por: @frontend_challenger</p>
+                    <span class="category">Lenguajes de Programación</span>
+                    <div class="tags">javascript, desafios, logica</div>
+                    <p class="description">20 desafíos interactivos para afinar tu lógica mientras aprendes JS de forma
+                        divertida.</p>
+                    <div class="resource-actions">
+                        <a href="https://www.freecodecamp.org/espanol/news/40-proyectos-de-javascript-para-principiantes-ideas-faciles-para-empezar-a-codificar-en-js/"
+                            target="_blank" class="btn-vermas">Explorar</a>
+                    </div>
+                </div>
+
+                <div class="resource-card" data-category="estructuras">
+                    <h3>Diagramas de Flujo: ¿Qué son y para qué son?</h3>
+                    <p class="author">por: @diagrama_dev</p>
+                    <span class="category">Estructuras, Ciclos, Bucles</span>
+                    <div class="tags">diagramas, logica, pdf</div>
+                    <p class="description">Domina los símbolos básicos y resuelve problemas visualmente con ejemplos
+                        paso a paso.</p>
+                    <div class="resource-actions">
+                        <a href="https://www.uv.mx/personal/aherrera/files/2020/05/DIAGRAMAS-DE-FLUJO.pdf"
+                            target="_blank" class="btn-vermas">Explorar</a>
+                    </div>
+                </div>
+
+                <div class="resource-card" data-category="logica">
+                    <h3>Introducción a Pseudocódigo para Noobs</h3>
+                    <p class="author">por: @codecraft</p>
+                    <span class="category">Lógica de Programación</span>
+                    <div class="tags">pseudocodigo, iniciacion, algoritmos</div>
+                    <p class="description">Aprende a escribir la lógica de tus programas antes de codificar. Ideal para
+                        principiantes.</p>
+                    <div class="resource-actions">
+                        <a href="https://www.josedomingo.org/pledin/2019/05/curso-programacion-pseudocodigo/"
+                            target="_blank" class="btn-vermas">Explorar</a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <p id="empty-message"
+            style="display: none; text-align: left; margin-left: 45px; color: #727374; font-style: italic; font-size: 1rem;">
+            Aún no hay contenido aquí
+        </p>
+    </main>
+
+    <div id="popup-editor" class="popup hidden" role="dialog" aria-modal="true" aria-labelledby="popup-title">
+        <div class="popup-content">
+            <h3 id="popup-title">Compartir material de estudio</h3>
+            <form id="article-form">
+                <label for="title">Título</label>
+                <input id="title" type="text" placeholder="Escribe un título..." required />
+
+                <label for="category">Categoría</label>
+                <select id="category" required>
+                    <option value="" disabled selected>Selecciona una categoría</option>
+                    <option value="frontend">Frontend</option>
+                    <option value="backend">Backend</option>
+                    <option value="bases_de_datos">Bases de Datos</option>
+                    <option value="algoritmos">Algoritmos</option>
+                    <option value="control_de_versiones">Control de Versiones</option>
+                    <option value="logica">Lógica</option>
+                    <option value="estructuras_de_datos">Estructuras, Ciclos, Bucles</option>
+                    <option value="desarrollo_web">Desarrollo Web</option>
+                    <option value="lenguajes">Lenguajes</option>
+                    <option value="matematicas">Matemáticas</option>
+                    <option value="ingles">Inglés</option>
+                </select>
+
+                <label for="tags">Etiquetas</label>
+                <input id="tags" type="text" placeholder="ej: pdf, enlace, link" required />
+
+                <label for="editor">Descripción del recurso</label>
+                <div id="editor" class="quill-editor"></div>
+
+                <button type="submit">Publicar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL LOGIN / REGISTRO -->
+    <div id="auth-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="cerrar-modal">&times;</span>
+            <div class="form-container">
+                <div class="tab-selector">
+                    <button id="btn-login" class="active">Iniciar Sesión</button>
+                    <button id="btn-registro">Registrarse</button>
+                </div>
+
+                <form id="form-login" class="auth-form">
+                    <h3>Iniciar Sesión</h3>
+                    <label for="login-email">Nombre de usuario o Correo electrónico</label>
+                    <input type="text" id="login-identificador" required>
+                    <label for="login-password">Contraseña</label>
+                    <input type="password" id="login-password" required />
+                    <div class="advertencia-registro">
+                        <p style="font-size: 0.7rem; margin: 0; text-align: center;">¿Olvidaste tu contraseña? <a
+                                href="#" style="font-size: 0.7rem;">Recuperar aquí</a>.</p>
+                    </div>
+                    <button type="submit">Entrar</button>
+                </form>
+
+                <form id="form-registro" class="auth-form hidden">
+                    <h3>Registrarse</h3>
+                    <label for="registro-nombre">Nombre de usuario</label>
+                    <input type="text" id="registro-nombre" required />
+                    <label for="registro-email">Correo electrónico</label>
+                    <input type="email" id="registro-email" required />
+                    <label for="registro-password">Contraseña</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="registro-password" required />
+                        <span class="toggle-password" data-target="registro-password" aria-label="Mostrar contraseña"
+                            role="button" tabindex="0">
+                            <!-- SVG de ojo abierto -->
+                            <svg class="icon-eye" xmlns="http://www.w3.org/2000/svg" height="24" width="24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                <circle cx="12" cy="12" r="3" />
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="advertencia-registro">
+                        <p style="font-size: 0.7rem; margin: 0; text-align: center;">Al hacer click en 'Crear cuenta'
+                            estás aceptando nuestros <a href="/html_css/acercaDe.html"
+                                style="font-size: 0.7rem;">Términos y Condiciones.</a></p>
+                    </div>
+                    <button type="submit">Crear cuenta</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer id="contacto-footer">
+        <p><strong>Contacto</strong><br><br>
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                    d="M6.62 10.79a15.05 15.05 0 0 0 6.57 6.57l2.2-2.2a1.49 1.49 0 0 1 1.51-.36 10.05 10.05 0 0 0 3.13.5 1.5 1.5 0 0 1 1.5 1.5v3.75a1.5 1.5 0 0 1-1.5 1.5A19.5 19.5 0 0 1 3 3a1.5 1.5 0 0 1 1.5-1.5H8.25a1.5 1.5 0 0 1 1.5 1.5 10.05 10.05 0 0 0 .5 3.13 1.49 1.49 0 0 1-.36 1.51z" />
+            </svg> 300 123 4567 |
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M22 4H2v16h20V4zm-2 2v.51L12 12.76 4 6.51V6h16zm0 12H4v-8.24l8 6 8-6V18z" />
+            </svg> codigocero@gmail.com
+        </p>
+        <p>
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 5.92 11.75 6.21 12.07.46.5 1.22.5 1.68 0C13.08 20.75 19 14.25 19 9c0-3.87-3.13-7-7-7zm0 10.5c-1.93 0-3.5-1.57-3.5-3.5S10.07 5.5 12 5.5s3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z" />
+            </svg> Medellín, Colombia
+        </p>
+        <div class="redes">
+            <a href="https://www.instagram.com/" target="_blank" title="Instagram">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path fill="white"
+                        d="M7 2h10c2.76 0 5 2.24 5 5v10c0 2.76-2.24 5-5 5H7c-2.76 0-5-2.24-5-5V7c0-2.76 2.24-5 5-5zm5 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm6-1.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z" />
+                </svg>
+            </a>
+        </div>
+        <p class="cp">&copy; 2025 CÓDIGO CERO | Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="/script_js/barrabusqueda.js"></script>
+    <script src="/script_js/sidebar.js"></script>
+    <script src="/script_js/header.js"></script>
+    <script src="/script_js/acceso.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll('.btn-attend').forEach(button => {
+                const countSpan = button.querySelector('.attend-count');
+
+                if (!countSpan) {
+                    const span = document.createElement('span');
+                    span.classList.add('attend-count');
+                    span.textContent = '0';
+                    button.appendChild(span);
+                }
+
+                button.addEventListener('click', () => {
+                    const countSpan = button.querySelector('.attend-count');
+                    let count = parseInt(countSpan.textContent);
+
+                    if (!button.classList.contains('attending')) {
+                        count += 1;
+                        button.classList.add('attending');
+                        button.firstChild.textContent = '¡Nos vemos! '; // Cambia solo el texto, no el span
+                    } else {
+                        count -= 1;
+                        button.classList.remove('attending');
+                        button.firstChild.textContent = 'Asistiré ';
+                    }
+
+                    countSpan.textContent = count;
+                });
+            });
+
+            const asistirBtns = document.querySelectorAll(".btn-asistire");
+            const verMasBtns = document.querySelectorAll(".btn-vermas");
+
+            asistirBtns.forEach((btn) => {
+                btn.addEventListener("click", () => {
+                    btn.classList.toggle("confirmed");
+                    btn.textContent = btn.classList.contains("confirmed") ? "¡Confirmado!" : "Asistiré";
+                });
+            });
+
+            verMasBtns.forEach((btn) => {
+                btn.addEventListener("click", () => {
+                    const detalles = btn.closest(".event-card").querySelector(".evento-detalles");
+                    const isVisible = detalles.style.display === "block";
+
+                    detalles.style.display = isVisible ? "none" : "block";
+                    btn.textContent = isVisible ? "Ver más" : "Ver menos";
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

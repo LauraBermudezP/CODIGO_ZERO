@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="DEV DEVEL" />
+    <meta name="description"
+        content="{ El blog de programación para aprendices. Encuentra, comparte, aprende y participa. }" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="/assets/CZERO.png" type="image/x-icon" />
+    <title>Código Zero | Blog</title>
+    <link rel="stylesheet" href="/html_css/stylesheet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="/html_css/indexU.html">
+                    <img src="/assets/CZERO.png" alt="Logo DEV DEVEL" title="Volver a la página principal">
+                </a>
+            </div>
+            <div class="search-container">
+                <div class="search-bar">
+                    <button type="submit" aria-label="Buscar" title="Buscar">
+                        <svg width="25" height="25" viewBox="0 4 24 16" fill="#3b3b3b"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="10" cy="10" r="7" stroke="#3b3b3b" stroke-width="2" fill="none" />
+                            <line x1="15" y1="15" x2="22" y2="22" stroke="#3b3b3b" stroke-width="2" />
+                        </svg>
+                    </button>
+                    <input type="text" id="searchInput" placeholder="Buscar..." />
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/html_css/terminologiaU.html">Terminología</a></li>
+                <li><a href="/html_css/recursosAcademicosU.html">Recursos</a></li>
+                <li><a href="/html_css/eventosU.html">Eventos</a></li>
+                <li><a href="/html_css/acercaDeU.html">Acerca de</a></li>
+            </ul>
+            <button id="create-post-btn" title="Crear artículo">Crear</button>
+            <div class="user-icon">
+                <button type="button" id="abrir-login">
+                    <i class="fas fa-user"></i>
+                </button>
+            </div>
+            <aside id="menu-user" class="menu-user">
+                <a href="/html_css/perfil.html">Perfil</a>
+                <a href="#">Configuraciones</a>
+                <a href="https://www.whatsapp.com/?lang=es_LA" target="_blank">Ayuda</a>
+                <a href="/html_css/index.html">Cerrar sesión</a>
+            </aside>
+        </nav>
+    </header>
+
+    <main class="main-container">
+        <aside class="sidebar">
+            <h3>Categorías</h3>
+            <ul>
+                <li><a href="#" data-category="all" class="active">TODAS</a></li>
+                <li><a href="#" data-category="frontend">Frontend</a></li>
+                <li><a href="#" data-category="backend">Backend</a></li>
+                <li><a href="#" data-category="bases_de_datos">Bases de Datos</a></li>
+                <li><a href="#" data-category="algoritmos">Algoritmos</a></li>
+                <li><a href="#" data-category="logica">Lógica</a></li>
+                <li><a href="#" data-category="control_de_versiones">Control de Versiones</a></li>
+                <li><a href="#" data-category="estructuras">Estructuras, Ciclos, Bucles</a></li>
+                <li><a href="#" data-category="desarrollo_web">Desarrollo Web</a></li>
+                <li><a href="#" data-category="lenguajes">Lenguajes de Programación</a></li>
+                <li><a href="#" data-category="matematicas">Matemáticas</a></li>
+                <li><a href="#" data-category="ingles">Inglés</a></li>
+            </ul>
+        </aside>
+
+        <button id="back-to-top" aria-label="Volver arriba">
+            <svg width="29" height="29" viewBox="0 0 24 24" fill="black" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 4L4 12H9V20H15V12H20L12 4Z" />
+            </svg>
+        </button>
+
+        <section class="main-forums">
+            <h2 class="slogan"><strong>【 Bienvenid@ a la comunidad | Publicaciones recientes 】</strong></h2>
+
+            <div id="publications">
+                <div id="publication-list"></div>
+            </div>
+
+            <div class="forum-grid">
+                <article class="forum-card" data-category="logica">
+                    <h3>¿Quieres mejorar tu lógica en programación? ¡Empieza por aquí!</h3>
+                    <p class="author">29/05/2025 - por @yuanX_dev</p>
+                    <div class="caracteristicas">
+                        <span class="category">Lógica de Programación</span>
+                        <span class="level">Principiante</span>
+                    </div>
+                    <div class="tags">lógica, algoritmos, programación</div>
+                    <p class="description">
+                        Si estás dando tus primeros pasos en el mundo del código, es totalmente normal que te sientas
+                        confundid@ con conceptos como condiciones, ciclos o estructuras de datos. Pero no te preocupes:
+                        ¡la lógica se entrena! Una buena forma de empezar es resolviendo retos simples con pseudocódigo,
+                        usando diagramas de flujo o jugando con plataformas como Codewars o HackerRank. También puedes
+                        practicar con juegos mentales como Sudoku o rompecabezas tipo "torre de Hanoi". Cuanto más
+                        ejercites tu pensamiento lógico, más fácil será escribir código que tenga sentido y funcione
+                        correctamente...
+                    </p>
+                    <p class="details">
+                        <span
+                            style="text-align: center; margin-left: 280px;">┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄</span><br><br>
+                        Una vez que has dado los primeros pasos y entiendes la importancia de la lógica, es momento
+                        de
+                        profundizar. Aquí te explicamos algunas herramientas y estrategias que te ayudarán a consolidar
+                        tus conocimientos y a escribir código de manera más fluida y efectiva: <br><br>
+
+                        <strong>1. Pseudocódigo:</strong> Tu Primer Borrador de Ideas
+                        El pseudocódigo es como el borrador de tu programa. Te permite plasmar la secuencia de pasos
+                        lógicos que debe seguir tu solución, sin preocuparte por la sintaxis específica de un lenguaje
+                        de programación. Es una herramienta poderosa para:
+
+                        Clarificar tu pensamiento: Antes de escribir una sola línea de código real, el pseudocódigo te
+                        obliga a pensar en cada detalle del proceso.
+                        Identificar errores lógicos: Es mucho más fácil detectar un error en la secuencia de un
+                        pseudocódigo que en un programa complejo con múltiples líneas de código.
+                        Comunicación: Puedes compartir tu pseudocódigo con otros para explicar tu enfoque, incluso si no
+                        hablan el mismo lenguaje de programación.
+                        ¿Cómo usarlo? Simplemente escribe en lenguaje natural los pasos que tu programa debe seguir,
+                        utilizando estructuras básicas como SI... ENTONCES... SINO, MIENTRAS, PARA, LEER,
+                        ESCRIBIR.<br><br>
+                        <strong>2. Diagramas de Flujo:</strong> Visualizando el Camino del Programa
+                        Los diagramas de flujo son representaciones gráficas de los algoritmos. Utilizan símbolos
+                        estandarizados para ilustrar la secuencia de operaciones, las decisiones y el flujo de control
+                        de un programa. Son excelentes para:
+
+                        Visualizar la lógica: Te permiten ver de un vistazo cómo se ejecuta tu programa y cómo
+                        interactúan las diferentes partes.
+                        Depuración: Ayudan a identificar puntos problemáticos o lógicas erróneas al seguir el "camino"
+                        que toma el programa.
+                        Documentación: Sirven como una excelente documentación visual para entender el funcionamiento de
+                        un algoritmo complejo.
+                        Herramientas para crearlos: Puedes usar software como Draw.io, Lucidchart, o incluso papel y
+                        lápiz para empezar.<br><br>
+
+                        <strong>3. Plataformas de Retos de Codificación:</strong> Pon a Prueba tus Habilidades
+                        Plataformas como Codewars y HackerRank son gimnasios virtuales para tu mente de programador.
+                        Ofrecen una gran variedad de problemas de programación con diferentes niveles de dificultad. Al
+                        resolverlos, no solo aplicas lo que aprendes, sino que también:
+
+                        Refuerzas conceptos: Cada problema te obliga a aplicar y entender mejor conceptos como bucles,
+                        condicionales, funciones y estructuras de datos.
+                        Aprendes de otros: Muchas de estas plataformas te permiten ver las soluciones de otros usuarios,
+                        lo que es una fuente invaluable de aprendizaje y nuevas perspectivas.
+                        Mejoras la eficiencia: Te desafían a encontrar soluciones más óptimas y eficientes,
+                        desarrollando así tu pensamiento algorítmico.<br><br>
+                        <strong>4. Juegos Mentales: Lógica Fuera de la Pantalla</strong>
+                        No todo el entrenamiento lógico tiene que ser frente a una pantalla. Juegos como el Sudoku, la
+                        Torre de Hanói o incluso ajedrez, damas y otros rompecabezas, son fantásticos para:
+
+                        Desarrollar el pensamiento estratégico: Te obligan a planificar varios pasos por delante y a
+                        anticipar resultados.
+                        Mejorar la resolución de problemas: Te enfrentan a situaciones donde debes analizar y encontrar
+                        la mejor solución posible.
+                        Fomentar la paciencia y la perseverancia: Son habilidades clave para cualquier programador.
+                        Recuerda: La práctica constante es la clave. No te desanimes si al principio te cuesta; cada
+                        error es una oportunidad para aprender. ¡Sigue ejercitando tu lógica y verás cómo tus
+                        habilidades de programación despegan!
+                    </p>
+                    <!-- Comentarios ocultos por defecto -->
+                    <div class="comment-section" style="display: none;">
+                        <h4>Comentarios</h4>
+                        <form class="comment-form">
+                            <textarea placeholder="Escribe tu comentario..." required></textarea>
+                            <button type="submit">Comentar</button>
+                        </form>
+                        <div class="comments-list">
+                            <div class="comments-list">
+                                <div class="comment">
+                                    <p><strong>@logicLover:</strong> ¡Este artículo me dio justo el empujón que
+                                        necesitaba para empezar con pseudocódigo!</p>
+                                </div>
+                                <div class="comment">
+                                    <p><strong>@alg0rithmX:</strong> Usar juegos mentales fuera de la compu fue un
+                                        consejo 🔝. Gracias por eso.</p>
+                                </div>
+                                <div class="comment">
+                                    <p><strong>@beginnerCode:</strong> Recién empiezo y me sentía perdid@. Ahora tengo
+                                        un norte. 🙌</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="forum-actions">
+                        <button type="button" class="btn-like" aria-label="Like">
+                            <svg class="icon-heart" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                fill="none" stroke="#555" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 21C12 21 4 13.5 4 8.5C4 6 6 4 8.5 4C10 4 11 5 12 6C13 5 14 4 15.5 4C18 4 20 6 20 8.5C20 13.5 12 21 12 21Z" />
+                            </svg>
+                            <span class="like-count">108</span>
+                        </button>
+                        <button type="button" class="btn-report" aria-label="Report">
+                            <svg class="icon-flag" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                                stroke="#555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                viewBox="0 0 24 24">
+                                <path d="M4 15V4a1 1 0 0 1 1-1h12l-3 5 3 5H5a1 1 0 0 1-1-1z" />
+                                <line x1="4" y1="22" x2="4" y2="15" />
+                            </svg>
+                        </button>
+                    </div>
+                    <button type="button" class="forum-btn">Explorar artículo</button>
+                </article>
+
+                <article class="forum-card" data-category="lenguajes">
+                    <h3>¿Sabías la diferencia entre JAVA y JAVASCRIPT?</h3>
+                    <p class="author">29/01/2025 - por @mario_89</p>
+                    <div class="caracteristicas">
+                        <span class="category">Lenguajes de Programación</span>
+                        <span class="level">Principiante</span>
+                    </div>
+                    <div class="tags">java, javascript, js</div>
+                    <p class="description">Si estás iniciándote en el mundo del coding, seguramente habrás pensado que
+                        Java y JavaScript eran hermanos gemelos... ¿Verdad? Pues aunque sus nombres suenen parecidos y
+                        compartan una parte de su sintaxis (influenciada por C/C++), Java y JavaScript o JS son dos
+                        lenguajes de programación completamente distintos, creados para propósitos diferentes y con
+                        filosofías de diseño muy distintas. La similitud en el nombre es más una anécdota de marketing
+                        de los años 90 que una señal de parentesco técnico...</p>
+                    <p class="details">
+                        <span
+                            style="text-align: center; margin-left: 280px;">┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄</span><br><br>
+                        <strong>¿Por Qué la Confusión? Una Historia de Marketing y Coincidencias<br></strong>
+                        La historia de los nombres es fascinante y explica gran parte de la confusión. Java fue
+                        desarrollado por Sun Microsystems (ahora parte de Oracle) a principios de los 90, con el
+                        objetivo de ser un lenguaje "escribe una vez, ejecuta en cualquier lugar" (WORA por sus siglas
+                        en inglés), ideal para la programación de aplicaciones robustas.
+
+                        Unos años después, Netscape Communications, buscando añadir interactividad a sus navegadores
+                        web, creó un lenguaje llamado LiveScript. En ese momento, Java estaba en la cúspide de su
+                        popularidad. Para capitalizar el bombo publicitario y la percepción de modernidad que rodeaba a
+                        Java, Netscape decidió cambiar el nombre de LiveScript a JavaScript. Fue una estrategia de
+                        marketing pura, sin una base técnica real que los uniera más allá de una sintaxis similar a C y
+                        la idea de que ambos corrían en el navegador (aunque de formas muy diferentes).
+
+                        Diferencias Clave: Más Allá del Nombre
+                        Para entender por qué no son "hermanos", veamos sus principales diferencias:<br><br>
+
+                        <strong>1. Propósito y Ámbito de Aplicación</strong>
+                        Java: Es un lenguaje de propósito general, compilado, orientado a objetos y diseñado para
+                        construir aplicaciones empresariales a gran escala, aplicaciones móviles Android, sistemas de
+                        backend robustos, software de escritorio, y más. Piensa en sistemas bancarios, grandes bases de
+                        datos o aplicaciones que necesitan mucha potencia y estabilidad.
+                        JavaScript: Es un lenguaje interpretado (o "just-in-time" compilado), primariamente diseñado
+                        para añadir interactividad y dinamismo a las páginas web en el lado del cliente (frontend). Con
+                        la llegada de Node.js, JavaScript también se extendió al lado del servidor (backend),
+                        permitiendo a los desarrolladores usar un solo lenguaje para todo el stack.<br>
+                        <strong>2. Naturaleza del Lenguaje</strong>
+                        Java: Es un lenguaje fuertemente tipado y compilado. Esto significa que las variables deben
+                        tener un tipo de dato definido (ej. entero, cadena de texto) antes de ser usadas, y el código se
+                        traduce completamente a bytecode antes de ejecutarse. Esto ofrece un rendimiento optimizado y
+                        facilita la detección de errores en etapas tempranas.
+                        JavaScript: Es un lenguaje débilmente tipado e interpretado. No necesitas declarar el tipo de
+                        una variable explícitamente, y el código se ejecuta línea por línea por el navegador o el
+                        entorno de ejecución (como Node.js). Esto lo hace más flexible y rápido para prototipar, pero
+                        también puede introducir errores en tiempo de ejecución si no se manejan los tipos de datos
+                        adecuadamente.<br>
+                        <strong>3. Ejecución</strong>
+                        Java: Se ejecuta en una Máquina Virtual Java (JVM), lo que le permite ser multiplataforma
+                        ("escribe una vez, ejecuta en cualquier lugar"). El bytecode de Java se puede ejecutar en
+                        cualquier dispositivo que tenga una JVM instalada.
+                        JavaScript: Principalmente se ejecuta en el navegador web a través de su motor JavaScript (como
+                        V8 en Chrome o SpiderMonkey en Firefox). Con Node.js, puede ejecutarse fuera del navegador, en
+                        el servidor o en aplicaciones de escritorio, pero sigue siendo interpretado por un motor de
+                        JavaScript.<br>
+                        <strong>4. Concurrencia</strong>
+                        Java: Soporta multihilo (multi-threading) de forma nativa, lo que significa que puede ejecutar
+                        múltiples tareas simultáneamente, ideal para aplicaciones complejas que necesitan manejar muchas
+                        operaciones a la vez.
+                        JavaScript: Es principalmente de un solo hilo (single-threaded), lo que significa que solo puede
+                        ejecutar una tarea a la vez. Sin embargo, utiliza un modelo de concurrencia basado en eventos y
+                        callbacks (y más recientemente con async/await) para manejar operaciones asíncronas sin bloquear
+                        el hilo principal, lo que lo hace muy eficiente para operaciones de I/O.
+                        En Resumen: Dos Caminos Diferentes
+                        La próxima vez que escuches "Java" y "JavaScript", recuerda que son como un coche y una
+                        motocicleta. Ambos son vehículos, ambos te llevan a destinos, pero están diseñados de manera
+                        fundamentalmente diferente para distintos propósitos y terrenos. Comprender estas diferencias es
+                        crucial para elegir la herramienta adecuada para el trabajo y para evitar confusiones comunes en
+                        tu camino como desarrollador.
+                    </p>
+                    <!-- Comentarios ocultos por defecto -->
+                    <div class="comment-section" style="display: none;">
+                        <h4>Comentarios</h4>
+                        <form class="comment-form">
+                            <textarea placeholder="Escribe tu comentario..." required></textarea>
+                            <button type="submit">Comentar</button>
+                        </form>
+                        <div class="comments-list">
+                            <div class="comments-list">
+                                <div class="comment">
+                                    <p><strong>@logicLover:</strong> ¡Este artículo me dio justo el empujón que
+                                        necesitaba para empezar con pseudocódigo!</p>
+                                </div>
+                                <div class="comment">
+                                    <p><strong>@alg0rithmX:</strong> Usar juegos mentales fuera de la compu fue un
+                                        consejo 🔝. Gracias por eso.</p>
+                                </div>
+                                <div class="comment">
+                                    <p><strong>@beginnerCode:</strong> Recién empiezo y me sentía perdid@. Ahora tengo
+                                        un norte. 🙌</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="forum-actions">
+                        <button type="button" class="btn-like" aria-label="Like">
+                            <svg class="icon-heart" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                fill="none" stroke="#555" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 21C12 21 4 13.5 4 8.5C4 6 6 4 8.5 4C10 4 11 5 12 6C13 5 14 4 15.5 4C18 4 20 6 20 8.5C20 13.5 12 21 12 21Z" />
+                            </svg>
+                            <span class="like-count">93</span>
+                        </button>
+                        <button type="button" class="btn-report" aria-label="Report">
+                            <svg class="icon-flag" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                                stroke="#555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                viewBox="0 0 24 24">
+                                <path d="M4 15V4a1 1 0 0 1 1-1h12l-3 5 3 5H5a1 1 0 0 1-1-1z" />
+                                <line x1="4" y1="22" x2="4" y2="15" />
+                            </svg>
+                        </button>
+                    </div>
+                    <button type="button" class="forum-btn">Explorar artículo</button>
+                </article>
+
+                <article class="forum-card" data-category="bases_de_datos">
+                    <h3>Bases de Datos no relacionales o NoSQL</h3>
+                    <p class="author">01/02/2025 - por @xSteban98</p>
+                    <div class="caracteristicas">
+                        <span class="category">Bases de Datos</span>
+                        <span class="level">Principiante</span>
+                    </div>
+                    <div class="tags">basesdedatos, bd, nosql</div>
+                    <p class="description">¿Sabías que no todas las bases de datos funcionan con tablas, columnas y
+                        filas como en Excel? Bienvenid@ al mundo de las bases de datos NoSQL...</p>
+                    <p class="details">
+                        <span
+                            style="text-align: center; margin-left: 280px;">┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄</span><br><br>
+                        En este artículo, exploraremos qué son las bases de datos no relacionales, por qué surgieron
+                        como una alternativa a las bases de datos tradicionales, y sus principales ventajas en
+                        escenarios donde la flexibilidad, la escalabilidad y el manejo de grandes volúmenes de datos no
+                        estructurados son cruciales. Descubre los diferentes tipos de modelos NoSQL, como las bases de
+                        datos de documentos, clave-valor, columnares y de grafos, y entiende cuándo y por qué elegir una
+                        solución NoSQL para tus proyectos.<br><br>
+
+                        <strong>¿Qué son las Bases de Datos NoSQL?</strong><br>
+                        El término NoSQL significa "Not only SQL" (No solo SQL), lo que ya nos da una pista: no buscan
+                        reemplazar completamente a las bases de datos relacionales, sino ofrecer alternativas para
+                        escenarios específicos. A diferencia de las bases de datos SQL tradicionales, que se basan en un
+                        esquema rígido de tablas, filas y columnas y la atomicidad, consistencia, aislamiento y
+                        durabilidad (ACID), las bases de datos NoSQL son mucho más flexibles y escalables.
+
+                        Surgieron a principios del siglo XXI como respuesta a los desafíos de la Big Data, la web 2.0 y
+                        las aplicaciones distribuidas, donde el volumen, la velocidad y la variedad de los datos
+                        superaban las capacidades de las bases de datos relacionales tradicionales.<br><br>
+
+                        <strong>¿Por Qué Elegir NoSQL? Ventajas Clave</strong><br>
+                        Las bases de datos NoSQL ofrecen una serie de ventajas que las hacen atractivas para ciertos
+                        tipos de proyectos:<br><br>
+
+                        ● Flexibilidad de Esquema: A diferencia de las bases de datos relacionales que requieren un
+                        esquema predefinido, las bases de datos NoSQL permiten almacenar datos sin una estructura fija.
+                        Esto es ideal para manejar datos no estructurados o semiestructurados (como documentos JSON,
+                        XML, etc.) y para aplicaciones que evolucionan rápidamente, donde los requisitos de datos
+                        cambian constantemente.<br>
+                        ● Escalabilidad Horizontal: Las bases de datos NoSQL están diseñadas para escalar
+                        horizontalmente,
+                        es decir, para distribuir la carga de trabajo entre múltiples servidores (clusters). Esto
+                        permite manejar enormes volúmenes de datos y un alto tráfico de usuarios de manera eficiente,
+                        añadiendo más máquinas al sistema en lugar de mejorar una sola máquina (escalamiento
+                        vertical).<br>
+                        ● Alto Rendimiento: Al estar optimizadas para tipos de datos y patrones de acceso específicos,
+                        muchas bases de datos NoSQL pueden ofrecer un rendimiento superior para operaciones de
+                        lectura/escritura en grandes conjuntos de datos, especialmente en entornos distribuidos.<br>
+                        ● Disponibilidad Continua: Gracias a su diseño distribuido, las bases de datos NoSQL suelen
+                        ofrecer una alta disponibilidad, lo que significa que pueden seguir funcionando incluso si
+                        algunos servidores fallan.<br><br>
+                        <strong>Tipos Comunes de Bases de Datos NoSQL</strong><br>
+                        NoSQL no es un tipo de base de datos, sino una categoría que agrupa diferentes modelos. Los más
+                        comunes son:<br><br>
+
+                        ● Bases de Datos de Documentos: Almacenan datos en formato de documentos, generalmente JSON o
+                        BSON
+                        (JSON binario). Son ideales para almacenar y consultar datos semiestructurados con esquemas
+                        flexibles. Ejemplos populares incluyen MongoDB y Couchbase. Son excelentes para catálogos de
+                        productos, perfiles de usuario y contenido web.<br>
+                        ● Bases de Datos Clave-Valor: El modelo más simple, donde cada elemento de datos se almacena
+                        como
+                        un par clave-valor. Son extremadamente rápidas para operaciones de lectura y escritura. Ejemplos
+                        son Redis y DynamoDB. Se utilizan comúnmente para almacenar sesiones de usuario, cachés y
+                        configuraciones.<br>
+                        ● Bases de Datos Columnares (Wide-Column Stores): Organizan los datos en familias de columnas en
+                        lugar de filas. Son muy eficientes para consultas analíticas y el manejo de grandes volúmenes de
+                        datos con muchas columnas dispersas. Cassandra y HBase son ejemplos destacados, usados en Big
+                        Data y aplicaciones con muchas lecturas y escrituras simultáneas.<br>
+                        ● Bases de Datos de Grafos: Diseñadas para almacenar y consultar relaciones entre entidades de
+                        manera eficiente. Utilizan nodos (entidades) y aristas (relaciones) para representar los datos.
+                        Neo4j es un ejemplo líder. Son perfectas para redes sociales, sistemas de recomendación y
+                        detección de fraude.
+                        ¿Cuándo Usar NoSQL?
+                        Elegir una base de datos NoSQL es una decisión estratégica. Son especialmente adecuadas para:
+
+                        Aplicaciones que requieren escalabilidad masiva y manejo de Big Data.
+                        Proyectos con esquemas de datos cambiantes o inexistentes.
+                        Aplicaciones web y móviles con alto tráfico y demanda de baja latencia.
+                        Sistemas que necesitan alta disponibilidad y tolerancia a fallos.
+                        Casos de uso con datos no estructurados o semiestructurados (como datos de redes sociales, IoT o
+                        logs).
+                        En resumen, las bases de datos NoSQL ofrecen una flexibilidad y escalabilidad sin precedentes,
+                        adaptándose a las exigencias del desarrollo moderno. Comprender sus fundamentos y los diferentes
+                        tipos te permitirá seleccionar la herramienta adecuada para tus futuros proyectos.
+                    </p>
+                    <!-- Comentarios ocultos por defecto -->
+                    <div class="comment-section" style="display: none;">
+                        <h4>Comentarios</h4>
+                        <form class="comment-form">
+                            <textarea placeholder="Escribe tu comentario..." required></textarea>
+                            <button type="submit">Comentar</button>
+                        </form>
+                        <div class="comments-list">
+                            <div class="comments-list">
+                                <div class="comment">
+                                    <p><strong>@logicLover:</strong> ¡Este artículo me dio justo el empujón que
+                                        necesitaba para empezar con pseudocódigo!</p>
+                                </div>
+                                <div class="comment">
+                                    <p><strong>@alg0rithmX:</strong> Usar juegos mentales fuera de la compu fue un
+                                        consejo 🔝. Gracias por eso.</p>
+                                </div>
+                                <div class="comment">
+                                    <p><strong>@beginnerCode:</strong> Recién empiezo y me sentía perdid@. Ahora tengo
+                                        un norte. 🙌</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="forum-actions">
+                        <button type="button" class="btn-like" aria-label="Like">
+                            <svg class="icon-heart" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                fill="none" stroke="#555" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 21C12 21 4 13.5 4 8.5C4 6 6 4 8.5 4C10 4 11 5 12 6C13 5 14 4 15.5 4C18 4 20 6 20 8.5C20 13.5 12 21 12 21Z" />
+                            </svg>
+                            <span class="like-count">93</span>
+                        </button>
+                        <button type="button" class="btn-report" aria-label="Report">
+                            <svg class="icon-flag" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                                stroke="#555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                viewBox="0 0 24 24">
+                                <path d="M4 15V4a1 1 0 0 1 1-1h12l-3 5 3 5H5a1 1 0 0 1-1-1z" />
+                                <line x1="4" y1="22" x2="4" y2="15" />
+                            </svg>
+                        </button>
+                    </div>
+                    <button type="button" class="forum-btn">Explorar artículo</button>
+                </article>
+
+                <article class="forum-card" data-category="frontend">
+                    <h3>El DOM y los Nodos en programación Frontend</h3>
+                    <p class="author">08/02/2025 - por @mariaLoopera</p>
+                    <div class="caracteristicas">
+                        <span class="category">Frontend</span>
+                        <span class="level">Intermedio</span>
+                    </div>
+                    <div class="tags">dom, nodos, frontend, front, js, javascript</div>
+                    <p class="description">¿Alguna vez te has preguntado cómo las páginas "cobran vida" cuando haces
+                        clic en un botoncito, envías un formulario o ves que el contenido se actualiza sin recargar la
+                        página? La magia detrás de esta interactividad reside en un concepto fundamental del desarrollo
+                        frontend: el DOM, o Modelo de Objetos del Documento, y sus componentes, los Nodos.
+                        Si estás incursionando en el mundo del desarrollo web o simplemente quieres entender mejor cómo
+                        funciona tu navegador, este post es para ti...</p>
+                    <p class="details">
+                        <span
+                            style="text-align: center; margin-left: 280px;">┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄</span><br><br>
+                        En este artículo, desglosaremos qué es el DOM y cómo los navegadores lo utilizan para
+                        representar el contenido de una página web. Descubrirás la estructura jerárquica de los Nodos,
+                        desde los elementos HTML hasta los atributos y el texto, y aprenderás cómo JavaScript se
+                        convierte en el "cirujano" que manipula este árbol para crear experiencias de usuario dinámicas
+                        y responsivas. Prepárate para entender cómo tu código frontend realmente interactúa con lo que
+                        el usuario ve y experimenta.<br><br>
+                        <strong>¿Qué es el DOM? Tu Página Web como un Árbol Programable
+                        </strong><br>
+                        Imagina que tu navegador lee un archivo HTML y lo transforma en una estructura que JavaScript (y
+                        otros lenguajes) pueden entender y manipular. Esa estructura es el DOM.
+
+                        El Modelo de Objetos del Documento (DOM) es una interfaz de programación de aplicaciones (API)
+                        para documentos HTML y XML. Proporciona una representación estructurada del documento como un
+                        árbol de objetos, donde cada parte del documento (elementos, atributos, texto) se convierte en
+                        un "nodo" que JavaScript puede acceder y modificar.
+
+                        En esencia, el DOM es el puente entre tu código HTML/CSS y tu código JavaScript. Sin el DOM,
+                        JavaScript no tendría forma de "ver" o "tocar" los elementos de tu página web.<br><br>
+                        <strong>¿Por qué es tan importante el DOM?
+                        </strong><br>
+                        Las bases de datos NoSQL ofrecen una serie de ventajas que las hacen atractivas para ciertos
+                        tipos de proyectos:<br><br>
+
+                        ● Interactividad: Permite que tu página responda a las acciones del usuario (clics, pulsaciones
+                        de teclas, envío de formularios).<br>
+                        ● Dinámica: Puedes añadir, eliminar o modificar elementos y contenido en tiempo real, sin
+                        necesidad de recargar la página completa.<br>
+                        ● Actualizaciones en vivo: Fundamental para aplicaciones web modernas (Single Page Applications
+                        - SPAs) donde gran parte de la interfaz de usuario se actualiza de forma asíncrona.<br><br>
+                        <strong>Los Nodos: Los Bloques Constructores del DOM
+                        </strong><br>
+                        En el árbol del DOM, cada "pieza" del documento es un Nodo. Hay diferentes tipos de nodos, pero
+                        los más comunes que manipularás son:<br><br>
+
+                        ● Nodos de Elemento (Element Nodes): Representan las etiquetas HTML (como
+                        div, p, a, img). Son los más comunes y los que suelen tener otros nodos como "hijos".<br>
+                        ● Nodos de Texto (Text Nodes): Contienen el texto visible dentro de los elementos HTML.
+                        Por ejemplo, el texto "Hola Mundo" dentro de un 'Hola Mundo' sería un nodo de
+                        texto.<br>
+                        ● Nodos de Atributo (Attribute Nodes): Representan los atributos de los elementos HTML
+                        (como href en a href="..." o src en img src="..."). Aunque son importantes, rara vez los
+                        manipulas directamente como nodos; generalmente accedes a ellos a través de las
+                        propiedades del nodo de elemento padre.<br>
+                        ● Nodos de Documento (Document Node): Es el nodo raíz de todo el árbol del DOM,
+                        representando el documento HTML completo. Desde este nodo se accede a todos los demás.
+                    </p>
+                    <!-- Comentarios ocultos por defecto -->
+                    <div class="comment-section" style="display: none;">
+                        <h4>Comentarios</h4>
+                        <form class="comment-form">
+                            <textarea placeholder="Escribe tu comentario..." required></textarea>
+                            <button type="submit">Comentar</button>
+                        </form>
+                        <div class="comments-list">
+                            <div class="comments-list">
+                                <div class="comment">
+                                    <p><strong>@logicLover:</strong> ¡Este artículo me dio justo el empujón que
+                                        necesitaba para empezar con pseudocódigo!</p>
+                                </div>
+                                <div class="comment">
+                                    <p><strong>@alg0rithmX:</strong> Usar juegos mentales fuera de la compu fue un
+                                        consejo 🔝. Gracias por eso.</p>
+                                </div>
+                                <div class="comment">
+                                    <p><strong>@beginnerCode:</strong> Recién empiezo y me sentía perdid@. Ahora tengo
+                                        un norte. 🙌</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="forum-actions">
+                        <button type="button" class="btn-like" aria-label="Like">
+                            <svg class="icon-heart" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                fill="none" stroke="#555" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 21C12 21 4 13.5 4 8.5C4 6 6 4 8.5 4C10 4 11 5 12 6C13 5 14 4 15.5 4C18 4 20 6 20 8.5C20 13.5 12 21 12 21Z" />
+                            </svg>
+                            <span class="like-count">93</span>
+                        </button>
+                        <button type="button" class="btn-report" aria-label="Report">
+                            <svg class="icon-flag" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                                stroke="#555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                viewBox="0 0 24 24">
+                                <path d="M4 15V4a1 1 0 0 1 1-1h12l-3 5 3 5H5a1 1 0 0 1-1-1z" />
+                                <line x1="4" y1="22" x2="4" y2="15" />
+                            </svg>
+                        </button>
+                    </div>
+                    <button type="button" class="forum-btn">Explorar artículo</button>
+                </article>
+
+                <article class="forum-card" data-category="backend">
+                    <h3>¡Aprendamos juntos sobre Programación Orientada a Objetos!</h3>
+                    <p class="author">17/02/2025 - por @lau004</p>
+                    <div class="caracteristicas">
+                        <span class="category">Backend</span>
+                        <span class="level">Intermedio</span>
+                    </div>
+                    <div class="tags">poo, opp</div>
+                    <p class="description">Imagina que estás construyendo una casa. No empiezas a construirla pieza por
+                        pieza al azar. En cambio, piensas en la casa como un conjunto de componentes más grandes y bien
+                        definidos: el salón, la cocina, las habitaciones, los baños. Cada uno de estos componentes tiene
+                        sus propias características (tamaño, color, muebles) y sus propias funcionalidades (el salón es
+                        para relajarse, la cocina para cocinar)...</p>
+                    <p class="details">
+                        <span
+                            style="text-align: center; margin-left: 280px;">┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄</span><br><br>
+                        Cada uno de estos componentes tiene sus propias características (tamaño, color, muebles) y
+                        sus propias funcionalidades (el salón es para relajarse, la cocina para cocinar). La
+                        Programación Orientada a Objetos (POO) aplica esta misma lógica al desarrollo de software. Nos
+                        permite organizar el código en "objetos" modulares e independientes que interactúan entre sí,
+                        haciendo que la construcción de programas complejos sea mucho más intuitiva, mantenible y
+                        escalable. ¡Descubre cómo esta metodología transformará tu forma de pensar y construir
+                        software!<br><br>
+                        <strong>Los Pilares de tu Construcción Digital
+                        </strong><br>
+                        En la POO, cada "componente" de tu software, o "objeto", es como esa habitación bien definida de
+                        tu casa. Tiene sus propias "propiedades" (atributos, como el color de las paredes o el tamaño de
+                        la cocina) y sus propias "acciones" (métodos, como "cocinar" en la cocina o "relajarse" en el
+                        salón).<br>
+
+                        Pero la magia no termina ahí. La POO nos permite construir sistemas aún más complejos y robustos
+                        a través de principios clave:<br><br>
+                        ● Encapsulamiento: Imagina que cada habitación tiene su propio diseño interno y sus secretos.
+                        Tú, como usuario, solo necesitas saber cómo interactuar con ella (abrir la puerta, encender las
+                        luces), no cómo funcionan exactamente las tuberías o la electricidad dentro de las paredes. El
+                        encapsulamiento protege la complejidad interna de un objeto, exponiendo solo lo necesario para
+                        interactuar con él.<br>
+                        ● Herencia: Una vez que tienes el "plano" de una habitación básica, no necesitas empezar de cero
+                        para diseñar una habitación con balcón o un baño con jacuzzi. Puedes tomar el plano básico y
+                        añadirle características específicas. La herencia permite que un objeto "herede" propiedades y
+                        acciones de otro, creando una jerarquía y fomentando la reutilización del código.<br>
+                        ● Polimorfismo: Piensa en cómo diferentes objetos pueden responder a la misma "acción" de
+                        distintas maneras. Si dices "abre" en la casa, abrirás una puerta. Si dices "abre" en la cocina,
+                        abrirás la nevera. El polimorfismo permite que diferentes objetos respondan a la misma
+                        instrucción de forma única, lo que hace tu código más flexible y adaptable.<br>
+                        ● Abstracción: Al final, no necesitas saber cada detalle técnico de cómo se construyó cada
+                        ladrillo de la casa para vivir en ella. Te centras en las funcionalidades esenciales. La
+                        abstracción nos ayuda a enfocarnos en lo que un objeto hace, en lugar de cómo lo hace
+                        internamente, simplificando el diseño y la comprensión de sistemas complejos.<br><br>
+                        Aprender POO es dotarte de un poderoso set de herramientas para abordar desafíos de programación
+                        con una mentalidad más organizada y eficiente. ¿Estás listo para construir tu próximo gran
+                        proyecto con bases sólidas? Te invito a estar al tanto de mis próximos artículos porque estaré
+                        profundizando cada vez más en la POO y sus compontes.
+                    </p>
+                    <!-- Comentarios ocultos por defecto -->
+                    <div class="comment-section" style="display: none;">
+                        <h4>Comentarios</h4>
+                        <form class="comment-form">
+                            <textarea placeholder="Escribe tu comentario..." required></textarea>
+                            <button type="submit">Comentar</button>
+                        </form>
+                        <div class="comments-list">
+                            <div class="comments-list">
+                                <div class="comment">
+                                    <p><strong>@logicLover:</strong> ¡Este artículo me dio justo el empujón que
+                                        necesitaba para empezar con pseudocódigo!</p>
+                                </div>
+                                <div class="comment">
+                                    <p><strong>@alg0rithmX:</strong> Usar juegos mentales fuera de la compu fue un
+                                        consejo 🔝. Gracias por eso.</p>
+                                </div>
+                                <div class="comment">
+                                    <p><strong>@beginnerCode:</strong> Recién empiezo y me sentía perdid@. Ahora tengo
+                                        un norte. 🙌</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="forum-actions">
+                        <button type="button" class="btn-like" aria-label="Like">
+                            <svg class="icon-heart" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                fill="none" stroke="#555" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 21C12 21 4 13.5 4 8.5C4 6 6 4 8.5 4C10 4 11 5 12 6C13 5 14 4 15.5 4C18 4 20 6 20 8.5C20 13.5 12 21 12 21Z" />
+                            </svg>
+                            <span class="like-count">93</span>
+                        </button>
+                        <button type="button" class="btn-report" aria-label="Report">
+                            <svg class="icon-flag" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                                stroke="#555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                viewBox="0 0 24 24">
+                                <path d="M4 15V4a1 1 0 0 1 1-1h12l-3 5 3 5H5a1 1 0 0 1-1-1z" />
+                                <line x1="4" y1="22" x2="4" y2="15" />
+                            </svg>
+                        </button>
+                    </div>
+                    <button type="button" class="forum-btn">Explorar artículo</button>
+                </article>
+
+                <article class="forum-card" data-category="desarrollo_web">
+                    <h3>El "LocalStorage"</h3>
+                    <p class="author">27/02/2025 - por @migueA_A</p>
+                    <div class="caracteristicas">
+                        <span class="category">Desarrollo Web</span>
+                        <span class="level">Intermedio</span>
+                    </div>
+                    <div class="tags">localstorage, paginas_web</div>
+                    <p class="description">Si alguna vez te has preguntado cómo algunas páginas web "recuerdan" tus
+                        preferencias, o mantienen tu sesión iniciada incluso después de cerrar y reabrir el navegador,
+                        es muy probable que el localStorage esté detrás de la magia....</p>
+                    <p class="details">
+                        <span
+                            style="text-align: center; margin-left: 280px;">┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄</span><br><br>
+                        El LocalStorage es una característica del navegador web que permite a las páginas web almacenar
+                        información de forma persistente en el equipo del usuario, más allá del cierre de la pestaña o
+                        incluso del navegador. A diferencia de las cookies, que tienen un tamaño limitado y se envían
+                        con cada solicitud al servidor, localStorage ofrece mayor capacidad de almacenamiento
+                        (típicamente 5MB o más) y los datos nunca se envían al servidor automáticamente, lo que lo hace
+                        ideal para guardar configuraciones de usuario, datos de formularios incompletos, historiales de
+                        navegación local o estados de la aplicación. ¡Descubre cómo implementar esta poderosa
+                        herramienta para mejorar la experiencia de usuario y la eficiencia de tus aplicaciones
+                        web!<br><br>
+                        <strong>¿Por Qué LocalStorage y No Otra Cosa?
+                        </strong><br>
+                        El LocalStorage es una característica del navegador web que permite a las páginas web almacenar
+                        información de forma persistente en el equipo del usuario, más allá del cierre de la pestaña o
+                        incluso del navegador. A diferencia de las cookies, que tienen un tamaño limitado y se envían
+                        con cada solicitud al servidor, localStorage ofrece mayor capacidad de almacenamiento
+                        (típicamente 5MB o más) y los datos nunca se envían al servidor automáticamente, lo que lo hace
+                        ideal para guardar configuraciones de usuario, datos de formularios incompletos, historiales de
+                        navegación local o estados de la aplicación. Mientras que las cookies son pequeñas y se envían
+                        con cada petición HTTP, generando tráfico de red innecesario para datos que solo necesita el
+                        cliente, y SessionStorage solo guarda la información durante la sesión actual (se borra al
+                        cerrar la pestaña o el navegador), LocalStorage es el campeón de la persistencia del lado del
+                        cliente. Su mayor capacidad y la naturaleza de "solo cliente" lo convierten en una opción ideal
+                        para:<br><br>
+                        ● Personalizar la experiencia: ¿El usuario prefiere un tema oscuro? ¿Ha configurado un idioma
+                        específico o el tamaño de la fuente? Guarda estas preferencias para que la próxima vez que
+                        visite tu sitio, la experiencia sea consistente.<br>
+                        ● Guardar progeso de formularios: Si un usuario está llenando un formulario largo y cierra
+                        accidentalmente la página, puedes guardar los datos temporalmente en LocalStorage para que, al
+                        regresar, su progreso no se pierda.<br>
+                        ● Almacenar datos en caché del lado del usuario: Cierta información no crítica que no cambia con
+                        frecuencia (como la lista de productos de una tienda que no necesita estar siempre actualizada
+                        en tiempo real) puede guardarse en LocalStorage para acelerar la carga de la página.<br><br>
+                        Aprender POO es dotarte de un poderoso set de herramientas para abordar desafíos de programación
+                        con una mentalidad más organizada y eficiente. ¿Estás listo para construir tu próximo gran
+                        proyecto con bases sólidas? Te invito a estar al tanto de mis próximos artículos porque estaré
+                        profundizando cada vez más en la POO y sus compontes.
+                        <strong>Cómo Interactuar con LocalStorage (Básico)
+                        </strong><br>
+                        Manejar LocalStorage es sorprendentemente sencillo con JavaScript. Es una API simple de pares
+                        clave-valor:<br><br>
+                        ● localStorage.setItem('clave', 'valor');: Para guardar un dato. Tanto la clave como el valor
+                        deben ser cadenas de texto. Si quieres guardar un objeto o un array, deberás convertirlo a JSON
+                        usando JSON.stringify().<br>
+                        ● localStorage.getItem('clave');: Para recuperar un dato. Te devolverá la cadena de texto que
+                        guardaste, o null si la clave no existe. Si habías guardado un JSON, deberás usar JSON.parse()
+                        para convertirlo de nuevo a un objeto.<br>
+                        ● localStorage.removeItem('clave');: Para eliminar un dato específico.<br>
+                        ● localStorage.clear();: ¡Cuidado! Esto eliminará todos los datos almacenados por tu dominio en
+                        LocalStorage.<br><br>
+                        Got it! Here's more text to continue the description of your "LocalStorage" card, expanding on
+                        its practical uses and a bit about how to interact with it.
+
+                        ¿Por Qué LocalStorage y No Otra Cosa?
+                        Mientras que las cookies son pequeñas y se envían con cada petición HTTP, generando tráfico de
+                        red innecesario para datos que solo necesita el cliente, y SessionStorage solo guarda la
+                        información durante la sesión actual (se borra al cerrar la pestaña o el navegador),
+                        LocalStorage es el campeón de la persistencia del lado del cliente. Su mayor capacidad y la
+                        naturaleza de "solo cliente" lo convierten en una opción ideal para:
+
+                        Personalizar la Experiencia: ¿El usuario prefiere un tema oscuro? ¿Ha configurado un idioma
+                        específico o el tamaño de la fuente? Guarda estas preferencias para que la próxima vez que
+                        visite tu sitio, la experiencia sea consistente.
+                        Guardar Progreso de Formularios: Si un usuario está llenando un formulario largo y cierra
+                        accidentalmente la página, puedes guardar los datos temporalmente en LocalStorage para que, al
+                        regresar, su progreso no se pierda.
+                        Almacenar Datos en Caché del Lado del Cliente: Cierta información no crítica que no cambia con
+                        frecuencia (como la lista de productos de una tienda que no necesita estar siempre actualizada
+                        en tiempo real) puede guardarse en LocalStorage para acelerar la carga de la página.
+                        Cómo Interactuar con LocalStorage (Básico)
+                        Manejar LocalStorage es sorprendentemente sencillo con JavaScript. Es una API simple de pares
+                        clave-valor:
+
+                        localStorage.setItem('clave', 'valor');: Para guardar un dato. Tanto la clave como el valor
+                        deben ser cadenas de texto. Si quieres guardar un objeto o un array, deberás convertirlo a JSON
+                        usando JSON.stringify().
+                        localStorage.getItem('clave');: Para recuperar un dato. Te devolverá la cadena de texto que
+                        guardaste, o null si la clave no existe. Si habías guardado un JSON, deberás usar JSON.parse()
+                        para convertirlo de nuevo a un objeto.
+                        localStorage.removeItem('clave');: Para eliminar un dato específico.
+                        localStorage.clear();: ¡Cuidado! Esto eliminará todos los datos almacenados por tu dominio en
+                        LocalStorage.
+                        Recuerda, aunque es potente, LocalStorage no debe usarse para información sensible como
+                        contraseñas o tokens de sesión críticos, ya que los datos son accesibles desde el lado del
+                        cliente y no están cifrados automáticamente. ¡Siempre piensa en la seguridad primero!<br><br>
+                        Déjenme saber en los comentarios si quisieran que profundice aún más sobre el LocalStorage en
+                        otro de mis posts.
+                    </p>
+                    <!-- Comentarios ocultos por defecto -->
+                    <div class="comment-section" style="display: none;">
+                        <h4>Comentarios</h4>
+                        <form class="comment-form">
+                            <textarea placeholder="Escribe tu comentario..." required></textarea>
+                            <button type="submit">Comentar</button>
+                        </form>
+                        <div class="comments-list">
+                            <div class="comments-list">
+                                <div class="comment">
+                                    <p><strong>@logicLover:</strong> ¡Este artículo me dio justo el empujón que
+                                        necesitaba para empezar con pseudocódigo!</p>
+                                </div>
+                                <div class="comment">
+                                    <p><strong>@alg0rithmX:</strong> Usar juegos mentales fuera de la compu fue un
+                                        consejo 🔝. Gracias por eso.</p>
+                                </div>
+                                <div class="comment">
+                                    <p><strong>@beginnerCode:</strong> Recién empiezo y me sentía perdid@. Ahora tengo
+                                        un norte. 🙌</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="forum-actions">
+                        <button type="button" class="btn-like" aria-label="Like">
+                            <svg class="icon-heart" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                fill="none" stroke="#555" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 21C12 21 4 13.5 4 8.5C4 6 6 4 8.5 4C10 4 11 5 12 6C13 5 14 4 15.5 4C18 4 20 6 20 8.5C20 13.5 12 21 12 21Z" />
+                            </svg>
+                            <span class="like-count">93</span>
+                        </button>
+                        <button type="button" class="btn-report" aria-label="Report">
+                            <svg class="icon-flag" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                                stroke="#555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                viewBox="0 0 24 24">
+                                <path d="M4 15V4a1 1 0 0 1 1-1h12l-3 5 3 5H5a1 1 0 0 1-1-1z" />
+                                <line x1="4" y1="22" x2="4" y2="15" />
+                            </svg>
+                        </button>
+                    </div>
+                    <button type="button" class="forum-btn">Explorar artículo</button>
+                </article>
+            </div>
+        </section>
+        <p id="empty-message"
+            style="display: none; text-align: left; margin-left: 45px; color: #727374; font-style: italic; font-size: 1rem;">
+            Aún no hay contenido aquí
+        </p>
+    </main>
+
+    <div id="popup-editor" class="popup hidden" role="dialog" aria-modal="true" aria-labelledby="popup-title">
+        <div class="popup-content">
+            <h3 id="popup-title">Escribir Artículo</h3>
+            <form id="article-form">
+                <label for="title">Título</label>
+                <input id="title" type="text" placeholder="Escribe un título..." required />
+
+                <label for="level">Nivel</label>
+                <select id="level" required>
+                    <option value="" disabled selected>Selecciona un nivel</option>
+                    <option value="principiante">Principiante</option>
+                    <option value="intermedio">Intermedio</option>
+                    <option value="avanzado">Avanzado</option>
+                </select>
+
+                <label for="category">Categoría</label>
+                <select id="category" required>
+                    <option value="" disabled selected>Selecciona una categoría</option>
+                    <option value="frontend">Frontend</option>
+                    <option value="backend">Backend</option>
+                    <option value="bases_de_datos">Bases de Datos</option>
+                    <option value="algoritmos">Algoritmos</option>
+                    <option value="control_de_versiones">Control de Versiones</option>
+                    <option value="logica">Lógica</option>
+                    <option value="estructuras_de_datos">Estructuras, Ciclos, Bucles</option>
+                    <option value="desarrollo_web">Desarrollo Web</option>
+                    <option value="lenguajes">Lenguajes</option>
+                    <option value="matematicas">Matemáticas</option>
+                    <option value="ingles">Inglés</option>
+                </select>
+
+                <label for="tags">Etiquetas (separadas por comas)</label>
+                <input id="tags" type="text" placeholder="Ej: javascript, arrays, bucles" required />
+
+                <label for="intro">Introducción</label>
+                <input id="intro" type="text" placeholder="Escribe una introducción llamativa..." required />
+
+                <label for="editor">Contenido del artículo</label>
+                <div id="editor" class="quill-editor"></div>
+
+                <button type="submit">Publicar</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p><strong>Contacto</strong><br><br>
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                    d="M6.62 10.79a15.05 15.05 0 0 0 6.57 6.57l2.2-2.2a1.49 1.49 0 0 1 1.51-.36 10.05 10.05 0 0 0 3.13.5 1.5 1.5 0 0 1 1.5 1.5v3.75a1.5 1.5 0 0 1-1.5 1.5A19.5 19.5 0 0 1 3 3a1.5 1.5 0 0 1 1.5-1.5H8.25a1.5 1.5 0 0 1 1.5 1.5 10.05 10.05 0 0 0 .5 3.13 1.49 1.49 0 0 1-.36 1.51z" />
+            </svg> 300 123 4567 |
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M22 4H2v16h20V4zm-2 2v.51L12 12.76 4 6.51V6h16zm0 12H4v-8.24l8 6 8-6V18z" />
+            </svg> codigocero@gmail.com
+        </p>
+        <p>
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 5.92 11.75 6.21 12.07.46.5 1.22.5 1.68 0C13.08 20.75 19 14.25 19 9c0-3.87-3.13-7-7-7zm0 10.5c-1.93 0-3.5-1.57-3.5-3.5S10.07 5.5 12 5.5s3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z" />
+            </svg> Medellín, Colombia
+        </p>
+        <div class="redes">
+            <a href="https://www.instagram.com/" target="_blank" title="Instagram">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path fill="white"
+                        d="M7 2h10c2.76 0 5 2.24 5 5v10c0 2.76-2.24 5-5 5H7c-2.76 0-5-2.24-5-5V7c0-2.76 2.24-5 5-5zm5 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm6-1.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z" />
+                </svg>
+            </a>
+        </div>
+        <p class="cp">&copy; 2025 CÓDIGO CERO | Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="/script_js/barrabusqueda.js"></script>
+    <script src="/script_js/header.js"></script>
+    <script src="/script_js/sidebar.js"></script>
+    <script src="/script_js/votos.js"></script>
+    <script src="/script_js/comentarios.js"></script>
+    <script src="/script_js/perfil.js"></script>
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script src="/script_js/quill.js"></script>
+    <script src="/script_js/user.js"></script>
+    <script>
+        const buttons = document.querySelectorAll('.forum-btn');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const details = button.parentElement.querySelector('.details');
+
+                details.classList.toggle('active');
+
+                if (details.classList.contains('active')) {
+                    button.textContent = 'Ocultar detalles';
+                } else {
+                    button.textContent = 'Explorar artículo';
+                }
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            const header = document.querySelector('header'); 
+
+            if (menuToggle && navLinks) {
+                menuToggle.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                });
+
+                document.addEventListener('click', (event) => {
+                    if (!navLinks.contains(event.target) && !menuToggle.contains(event.target) && navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                    }
+                });
+
+                window.addEventListener('scroll', () => {
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                    }
+                });
+            }
+
+            const sidebarLinks = document.querySelectorAll('.sidebar-admin nav ul li');
+            const mainContent = document.getElementById('main-content'); 
+
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    sidebarLinks.forEach(item => item.classList.remove('active'));
+                    this.classList.add('active');
+
+                    const section = this.dataset.section; 
+                    if (section === 'posts') {
+                        mainContent.innerHTML = `
+                    <h2 style="color:var(--gris-negro); margin-bottom: 20px;">Gestión de Publicaciones</h2>
+                    <button id="create-post-btn" class="btn btn-primary" style="margin-bottom: 20px;">Crear Nueva Entrada</button>
+                    <ul id="posts-list" class="posts-container"></ul>
+                `;
+                        renderAdminPosts(); 
+                        document.getElementById('create-post-btn').addEventListener('click', () => {
+                            document.getElementById('popup-editor').classList.remove('hidden');
+                            initializeQuill();
+                            resetArticleForm();
+                        });
+                    } else if (section === 'dashboard') {
+                        mainContent.innerHTML = `
+                    <h2 style="color:var(--gris-negro); margin-bottom: 20px;">Dashboard de Administración</h2>
+                    <div class="dashboard-cards">
+                        <div class="card"><h3>Total Publicaciones</h3><p>150</p></div>
+                        <div class="card"><h3>Usuarios Registrados</h3><p>500</p></div>
+                        <div class="card"><h3>Eventos Activos</h3><p>12</p></div>
+                        <div class="card"><h3>Recursos Subidos</h3><p>80</p></div>
+                    </div>
+                    <div class="charts-dashboard">
+                        <div>
+                            <canvas id="postsChart"></canvas>
+                        </div>
+                        <div>
+                            <canvas id="usersChart"></canvas>
+                        </div>
+                    </div>
+                `;
+                        initCharts();
+                    }
+                    else if (section === 'events') {
+                        mainContent.innerHTML = `
+                    <h2 style="color:var(--gris-negro); margin-bottom: 20px;">Gestión de Eventos</h2>
+                    <button id="create-event-btn" class="btn btn-primary" style="margin-bottom: 20px;">Crear Nuevo Evento</button>
+                    <ul id="events-list" class="posts-container"></ul>
+                `;
+                        renderAdminEvents();
+                        document.getElementById('create-event-btn').addEventListener('click', () => {
+                            document.getElementById('popup-editor-event').classList.remove('hidden'); 
+                            initializeQuillEvent(); 
+                            resetEventForm(); 
+                        });
+                    } else if (section === 'resources') {
+                        mainContent.innerHTML = `
+                    <h2 style="color:var(--gris-negro); margin-bottom: 20px;">Gestión de Recursos</h2>
+                    <button id="create-resource-btn" class="btn btn-primary" style="margin-bottom: 20px;">Subir Nuevo Recurso</button>
+                    <ul id="resources-list" class="posts-container"></ul>
+                `;
+                        renderAdminResources();
+                    }
+                });
+            });
+            document.querySelector('.sidebar-admin nav ul li[data-section="dashboard"]').click(); 
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta chaset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="CÓDIGO ZERO" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="/assets/CZERO.png" type="image/x-icon" />
+    <title>Panel Administración | Código Zero</title>
+    <link rel="stylesheet" href="/html_css/styleAdmin.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Estilos básicos para ocultar secciones, puedes mover esto a styleAdmin.css */
+        .section-content {
+            display: none; /* Oculta todas las secciones por defecto */
+        }
+        .section-content.active {
+            display: block; /* Muestra la sección activa */
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="/html_css/indexA.html">
+                    <img src="/assets/CZERO.png" alt="Logo CÓDIGO ZERO" title="Volver a la página principal">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/html_css/terminologiaU.html">Terminología</a></li>
+                <li><a href="/html_css/recursosAcademicosU.html">Recursos</a></li>
+                <li><a href="/html_css/eventosA.html">Eventos</a></li>
+            </ul>
+            <button id="create-post-btn-header" title="Crear artículo">Crear entrada</button>
+            <div class="user-icon" style="text-align: center; font-weight: 700; padding-right: 10px;">
+                <p style="margin: 0;">Laura Bermudez</p>
+                <button type="button" id="abrir-login">
+                    <i class="fas fa-user"></i>
+                </button>
+            </div>
+            <aside id="menu-user" class="menu-user">
+                <a href="/html_css/perfil.html">Perfil</a>
+                <a href="/html_css/index.html">Cerrar sesión</a>
+            </aside>
+        </nav>
+    </header>
+
+    <div class="container-admin">
+        <aside class="sidebar-admin">
+            <h2>⚙️ Gestionar Blog</h2>
+            <nav>
+                <ul>
+                    <li data-section="dashboard" class="active-sidebar-item">📊 Dashboard</li> <li data-section="posts">✍️ Nuevas Entradas</li>
+                    <li data-section="users">👥 Usuarios</li>
+                    <li data-section="public">🏠 Inicio Público</li>
+                    <li data-section="reports">🚩 Reportes</li>
+                </ul>
+            </nav>
+        </aside>
+
+        <button id="back-to-top" aria-label="Volver arriba">
+            <svg width="29" height="29" viewBox="0 0 24 24" fill="black" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 4L4 12H9V20H15V12H20L12 4Z" />
+            </svg>
+        </button>
+
+        <main id="main-content" class="main-content">
+            <div id="dashboard-section" class="section-content active">
+                <div class="main-header">
+                    <h2>【 Bienvenid@ al panel de administración 】</h2>
+                </div>
+
+                <section class="dashboard-cards">
+                    <div class="card">
+                        <h4>Entradas Totales Hoy</h4>
+                        <p id="total-posts">9</p>
+                    </div>
+                    <div class="card">
+                        <h4>Visitas Hoy</h4>
+                        <p>118</p>
+                    </div>
+                    <div class="card">
+                        <h4>Total Usuarios</h4>
+                        <p>35</p>
+                    </div>
+                </section>
+
+                <section class="recent-posts">
+                    <h2>Últimas Entradas</h2>
+                    <ul id="recent-posts-list">
+                         <li class="post-item">
+                            <h3>Fundamentos de JavaScript</h3>
+                            <p><strong>Nivel:</strong> Principiante</p>
+                            <p>Una introducción a las bases de JavaScript.</p>
+                            <div class="post-actions">
+                                <button class="btn-view-static">Ver</button>
+                            </div>
+                        </li>
+                        <li class="post-item">
+                            <h3>Bases de Datos Relacionales</h3>
+                            <p><strong>Nivel:</strong> Intermedio</p>
+                            <p>Entendiendo SQL y sus principales comandos.</p>
+                            <div class="post-actions">
+                                <button class="btn-view-static">Ver</button>
+                            </div>
+                        </li>
+                        </ul>
+                </section>
+
+                <section class="charts-dashboard">
+                    <h2>Estadísticas Visuales</h2>
+                    <div style="max-width: 600px; margin: auto;">
+                        <canvas id="barChart"></canvas>
+                    </div>
+                    <div style="max-width: 400px; margin: 2rem auto;">
+                        <canvas id="pieChart"></canvas>
+                    </div>
+                </section>
+            </div>
+
+            <div id="posts-section-container" class="section-content">
+                <div class="main-header"><h2>Gestión de Entradas Nuevas</h2></div>
+                <button id="create-post-btn-section" class="btn btn-primary" style="margin-bottom: 20px;">Crear Nueva Entrada</button>
+                <ul id="posts-list" class="posts-container"></ul>
+            </div>
+
+            <div id="users-section-container" class="section-content">
+                <div class="main-header"><h2>Gestión de Usuarios</h2></div>
+                <p>Contenido de gestión de usuarios...</p>
+                <section class="user-reports">
+                    <h3>Reporte de Usuarios Registrados</h3>
+                    <ul>
+                        <li>Total usuarios: 35</li>
+                        <li>Usuarios activos hoy: 15</li>
+                        <li>Nuevos registros esta semana: 3</li>
+                    </ul>
+                </section>
+            </div>
+
+            <div id="public-section-container" class="section-content">
+                <div class="main-header"><h2>Gestión de Inicio Público</h2></div>
+                <p>Aquí puedes gestionar el contenido de la página principal del sitio público.</p>
+            </div>
+
+            <div id="reports-section-container" class="section-content">
+                <div class="main-header"><h2>Reportes Adicionales</h2></div>
+                <p>Visualiza diferentes tipos de reportes aquí.</p>
+                <section class="detailed-reports">
+                    <h3>Reporte de Interacción de Entradas</h3>
+                    <p>Gráfico de visitas por entrada, comentarios, etc.</p>
+                    <div style="max-width: 700px; margin: auto;"><canvas id="engagementChart"></canvas></div>
+                </section>
+            </div>
+
+        </main>
+    </div>
+
+    <div id="popup-editor" class="popup hidden" role="dialog" aria-modal="true" aria-labelledby="popup-title">
+        <div class="popup-content">
+            <h3 id="popup-title">Escribir Artículo</h3>
+            <form id="article-form">
+                <label for="title">Título</label>
+                <input id="title" type="text" placeholder="Escribe un título..." required />
+
+                <label for="level">Nivel</label>
+                <select id="level" required>
+                    <option value="" disabled selected>Selecciona un nivel</option>
+                    <option value="principiante">Principiante</option>
+                    <option value="intermedio">Intermedio</option>
+                    <option value="avanzado">Avanzado</option>
+                </select>
+
+                <label for="category">Categoría</label>
+                <select id="category" required>
+                    <option value="" disabled selected>Selecciona una categoría</option>
+                    <option value="frontend">Frontend</option>
+                    <option value="backend">Backend</option>
+                    <option value="bases_de_datos">Bases de Datos</option>
+                    <option value="algoritmos">Algoritmos</option>
+                    <option value="control_de_versiones">Control de Versiones</option>
+                    <option value="logica">Lógica</option>
+                    <option value="estructuras_de_datos">Estructuras, Ciclos, Bucles</option>
+                    <option value="desarrollo_web">Desarrollo Web</option>
+                    <option value="lenguajes">Lenguajes</option>
+                    <option value="matematicas">Matemáticas</option>
+                    <option value="ingles">Inglés</option>
+                </select>
+
+                <label for="tags">Etiquetas (separadas por comas)</label>
+                <input id="tags" type="text" placeholder="Ej: javascript, arrays, bucles" required />
+
+                <label for="intro">Introducción</label>
+                <input id="intro" type="text" placeholder="Escribe una introducción llamativa..." required />
+
+                <label for="editor">Contenido del artículo</label>
+                <div id="editor" class="quill-editor"></div>
+
+                <button type="submit">Publicar</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p class="cp">&copy; 2025 CÓDIGO CERO | Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="/script_js/acceso.js"></script>
+    <script src="/script_js/header.js"></script>
+    <script src="/script_js/perfil.js"></script>
+    <script src="/script_js/admin.js"></script> <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script src="/script_js/user.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const userBtn = document.getElementById('abrir-login');
+            const menu = document.getElementById('menu-user');
+
+            if (userBtn && menu) {
+                userBtn.addEventListener('click', () => {
+                    menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+                });
+
+                document.addEventListener('click', (e) => {
+                    if (!userBtn.contains(e.target) && !menu.contains(e.target)) {
+                        menu.style.display = 'none';
+                    }
+                });
+            }
+
+            const createPostBtnHeader = document.getElementById('create-post-btn-header'); // Botón del header
+            const popupEditor = document.getElementById('popup-editor');
+            const articleForm = document.getElementById('article-form');
+            const sidebarItems = document.querySelectorAll('.sidebar-admin ul li'); // Items del sidebar
+
+            const dashboardSection = document.getElementById('dashboard-section');
+            const postsSectionContainer = document.getElementById('posts-section-container');
+            const usersSectionContainer = document.getElementById('users-section-container');
+            const publicSectionContainer = document.getElementById('public-section-container');
+            const reportsSectionContainer = document.getElementById('reports-section-container');
+
+            function initializeQuill() {
+                if (!quill) {
+                    quill = new Quill('#editor', {
+                        theme: 'snow',
+                        modules: {
+                            toolbar: [
+                                ['bold', 'italic', 'underline', 'strike'],
+                                ['blockquote', 'code-block'],
+                                [{ 'header': 1 }, { 'header': 2 }],
+                                [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+                                [{ 'script': 'sub' }, { 'script': 'super' }],
+                                [{ 'indent': '-1' }, { 'indent': '+1' }],
+                                [{ 'direction': 'rtl' }],
+                                [{ 'size': ['small', false, 'large', 'huge'] }],
+                                [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+                                [{ 'color': [] }, { 'background': [] }],
+                                [{ 'font': [] }],
+                                [{ 'align': [] }],
+                                ['link', 'image', 'video'],
+                                ['clean']
+                            ]
+                        }
+                    });
+                }
+            }
+
+            if (createPostBtnHeader) {
+                createPostBtnHeader.addEventListener('click', () => {
+                    popupEditor.classList.remove('hidden');
+                    initializeQuill();
+                    resetArticleForm(); // Asegura que el formulario esté limpio para una nueva entrada
+                });
+            }
+
+            // Cierra el popup al hacer clic fuera de él
+            if (popupEditor) {
+                popupEditor.addEventListener('click', (e) => {
+                    if (e.target === popupEditor) {
+                        popupEditor.classList.add('hidden');
+                        resetArticleForm();
+                    }
+                });
+            }
+
+            // Función para guardar un artículo en localStorage
+            function saveArticle(article) {
+                let articles = JSON.parse(localStorage.getItem('adminArticles')) || [];
+                articles.push(article);
+                localStorage.setItem('adminArticles', JSON.stringify(articles));
+                alert('¡Artículo creado exitosamente!');
+            }
+
+            // Función para renderizar las entradas del administrador
+            function renderAdminPosts() {
+                const postsList = document.getElementById('posts-list'); 
+                if (!postsList) {
+                    console.error("Elemento #posts-list no encontrado. Asegúrate de que la sección 'posts' esté visible o cargada.");
+                    return;
+                }
+
+                const articles = JSON.parse(localStorage.getItem('adminArticles')) || [];
+                postsList.innerHTML = '';
+
+                if (articles.length === 0) {
+                    postsList.innerHTML = '<p>No hay entradas creadas aún. ¡Crea tu primera entrada!</p>';
+                    return;
+                }
+
+                articles.forEach(post => {
+                    const listItem = document.createElement('li');
+                    listItem.classList.add('post-item');
+                    listItem.setAttribute('data-id', post.id);
+
+                    listItem.innerHTML = `
+                        <h3>${post.title}</h3>
+                        <p><strong>Nivel:</strong> ${post.level}</p>
+                        <p><strong>Categoría:</strong> ${post.category}</p>
+                        <p><strong>Etiquetas:</strong> ${post.tags.join(', ')}</p>
+                        <p><strong>Introducción:</strong> ${post.intro}</p>
+                        <div class="post-content">${post.content}</div>
+                        <div class="post-actions">
+                            <button class="btn-edit-post" data-id="${post.id}">Editar</button>
+                            <button class="btn-delete-post" data-id="${post.id}">Eliminar</button>
+                        </div>
+                    `;
+                    postsList.appendChild(listItem);
+                });
+
+                attachPostEventListeners(); 
+            }
+
+            // Función para adjuntar escuchadores de eventos a los botones de entrada
+            function attachPostEventListeners() {
+                document.querySelectorAll('.btn-edit-post').forEach(button => {
+                    button.addEventListener('click', (e) => editPost(e.target.dataset.id));
+                });
+
+                document.querySelectorAll('.btn-delete-post').forEach(button => {
+                    button.addEventListener('click', (e) => deletePost(e.target.dataset.id));
+                });
+            }
+
+            // Función para editar una entrada
+            function editPost(id) {
+                const articles = JSON.parse(localStorage.getItem('adminArticles')) || [];
+                const articleToEdit = articles.find(article => article.id == id);
+
+                if (articleToEdit) {
+                    document.getElementById('popup-title').textContent = 'Editar Artículo';
+                    document.getElementById('title').value = articleToEdit.title;
+                    document.getElementById('level').value = articleToEdit.level;
+                    document.getElementById('category').value = articleToEdit.category;
+                    document.getElementById('tags').value = articleToEdit.tags.join(', ');
+                    document.getElementById('intro').value = articleToEdit.intro;
+
+                    initializeQuill();
+                    quill.root.innerHTML = articleToEdit.content;
+
+                    articleForm.setAttribute('data-editing-id', articleToEdit.id);
+                    popupEditor.classList.remove('hidden');
+                    articleForm.querySelector('button[type="submit"]').textContent = 'Actualizar Artículo';
+                }
+            }
+
+            // Función para eliminar una entrada
+            function deletePost(id) {
+                if (confirm('🔴 ¿Estás seguro de que quieres eliminar esta entrada?')) {
+                    let articles = JSON.parse(localStorage.getItem('adminArticles')) || [];
+                    articles = articles.filter(article => article.id != id);
+                    localStorage.setItem('adminArticles', JSON.stringify(articles));
+                    alert('¡Entrada eliminada!');
+                    renderAdminPosts(); 
+                }
+            }
+
+            // Función para resetear el formulario del popup
+            function resetArticleForm() {
+                document.getElementById('title').value = '';
+                document.getElementById('level').value = '';
+                document.getElementById('category').value = '';
+                document.getElementById('tags').value = '';
+                document.getElementById('intro').value = '';
+                if (quill) {
+                    quill.setContents([]);
+                }
+                document.getElementById('popup-title').textContent = 'Escribir Artículo';
+                articleForm.removeAttribute('data-editing-id');
+                articleForm.querySelector('button[type="submit"]').textContent = 'Publicar';
+            }
+
+            // Manejo del envío del formulario (Crear o Actualizar)
+            if (articleForm) {
+                articleForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const editingId = articleForm.getAttribute('data-editing-id');
+
+                    const title = document.getElementById('title').value;
+                    const level = document.getElementById('level').value;
+                    const category = document.getElementById('category').value;
+                    const tagsInput = document.getElementById('tags').value;
+                    const intro = document.getElementById('intro').value;
+                    const content = quill.root.innerHTML;
+
+                    if (!title || !level || !category || !tagsInput || !intro || quill.root.textContent.trim() === '') {
+                        alert('Por favor, completa todos los campos.');
+                        return;
+                    }
+
+                    const tags = tagsInput.split(',').map(tag => tag.trim()).filter(tag => tag !== '');
+
+                    if (editingId) { // Si estamos editando
+                        let articles = JSON.parse(localStorage.getItem('adminArticles')) || [];
+                        const index = articles.findIndex(article => article.id == editingId);
+
+                        if (index !== -1) {
+                            articles[index] = {
+                                ...articles[index],
+                                title,
+                                level,
+                                category,
+                                tags,
+                                intro,
+                                content
+                            };
+                            localStorage.setItem('adminArticles', JSON.stringify(articles));
+                            alert('¡Artículo actualizado exitosamente!');
+                        }
+                    } else { // Si es una nueva entrada
+                        const newArticle = {
+                            id: Date.now(),
+                            title,
+                            level,
+                            category,
+                            tags,
+                            intro,
+                            content
+                        };
+                        saveArticle(newArticle);
+                    }
+
+                    renderAdminPosts(); 
+                    popupEditor.classList.add('hidden');
+                    resetArticleForm();
+                });
+            }
+
+            const allSections = document.querySelectorAll('.main-content > .section-content');
+            const mainHeaderDefault = document.querySelector('.main-content > .main-header'); 
+
+            function showSection(sectionId) {
+                allSections.forEach(section => {
+                    section.classList.remove('active'); 
+                });
+                const targetSection = document.getElementById(sectionId);
+                if (targetSection) {
+                    targetSection.classList.add('active');
+                }
+            }
+
+            sidebarItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    sidebarItems.forEach(si => si.classList.remove('active-sidebar-item'));
+                    item.classList.add('active-sidebar-item');
+
+                    const section = item.dataset.section;
+
+                    if (mainHeaderDefault) {
+                        mainHeaderDefault.style.display = 'none';
+                    }
+
+                    if (section === 'dashboard') {
+                        showSection('dashboard-section');
+                    } else if (section === 'posts') {
+                        showSection('posts-section-container');
+                        renderAdminPosts(); 
+                        const createPostBtnSection = document.getElementById('create-post-btn-section');
+                        if (createPostBtnSection) {
+                            createPostBtnSection.onclick = () => { 
+                                popupEditor.classList.remove('hidden');
+                                initializeQuill();
+                                resetArticleForm();
+                            };
+                        }
+                    } else if (section === 'users') {
+                        showSection('users-section-container');
+                    } else if (section === 'public') {
+                        showSection('public-section-container');
+                    } else if (section === 'reports') {
+                        showSection('reports-section-container');
+                    }
+                });
+            });
+
+            showSection('dashboard-section');
+            document.querySelector('.sidebar-admin ul li[data-section="dashboard"]').classList.add('active-sidebar-item');
+
+            const barChartCtx = document.getElementById('barChart');
+            if (barChartCtx) {
+                new Chart(barChartCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo'],
+                        datasets: [{
+                            label: 'Entradas por Mes',
+                            data: [12, 19, 3, 5, 2],
+                            backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            }
+
+            const pieChartCtx = document.getElementById('pieChart');
+            if (pieChartCtx) {
+                new Chart(pieChartCtx, {
+                    type: 'pie',
+                    data: {
+                        labels: ['Frontend', 'Backend', 'Bases de Datos', 'Algoritmos'],
+                        datasets: [{
+                            label: 'Categorías',
+                            data: [30, 40, 15, 15],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.6)',
+                                'rgba(54, 162, 235, 0.6)',
+                                'rgba(255, 206, 86, 0.6)',
+                                'rgba(75, 192, 192, 0.6)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
